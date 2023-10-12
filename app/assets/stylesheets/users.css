@@ -1,0 +1,53 @@
+/* --------------------新規登録-------------------- */
+.container-registrtion {
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-field-registrtion {
+  height: 400px;
+  width: 400px;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.field {
+  margin-top: 10px;
+  padding: 0 0 0 30px;
+}
+
+.nickname-field,
+.email-field,
+.password-field,
+.password_confirmation-field {
+  width: 330px;
+  display: block;
+}
+
+.submit-field {
+  display: block;
+  width: 100px;
+  margin: 40px auto 0;
+}
+
+/* --------------------ログイン-------------------- */
+
+.container-session {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new_user {
+  height: 300px;
+  width: 400px;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
