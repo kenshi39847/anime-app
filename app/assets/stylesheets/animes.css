@@ -1,0 +1,172 @@
+/* --------------------ヘッダー-------------------- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  width: 1350px;
+  padding: 0 100px 0 30px;
+}
+
+.header a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.app-name {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.header-lists {
+  display: flex;
+  list-style: none;
+}
+
+.log-in,
+.sign-up {
+  height: 30px;
+  width: 100px;
+  line-height: 30px;
+  margin-left: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  background-color: #5ec9fb;
+}
+
+/* 検索欄 */
+.anime-search {
+  width: 1480px;
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  padding: 50px 0 0 0;
+  background-color: #d2d2d2;
+}
+
+.search-forms {
+  width: 1350px;
+  height: 100px;
+  padding: 50px 100px 50px 30px;
+  background-color: #d2d2d2;
+}
+
+.forms {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-form {
+  width: 400px;
+}
+
+.genre-form,
+.good-point-form,
+.recommendation-form,
+.search {
+  width: 150px;
+}
+
+/* --------------------アニメ投稿一覧-------------------- */
+.anime-chart-post {
+  width: 1480px;
+  height: 800px;
+  background-color: #d2d2d2;
+}
+
+.charts {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 100px 0 30px;
+}
+
+.anime-chart {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.new-post {
+  height: 50px;
+  width: 150px;
+  line-height: 50px;
+  font-size: 20px;
+  font-weight: 600;
+  border: 2px solid #000000;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.new-post a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.posts {
+  display: flex;
+  justify-content: space-between;
+  padding: 100px 100px 50px 30px;
+}
+
+.anime-content {
+  height: 450px;
+  width: 400px;
+  border: 2px solid #000000;
+  background-color: #ffffff;
+}
+
+.content-header {
+display: flex;
+justify-content: space-between;
+padding: 20px 30px 0 30px;
+}
+
+.content-anime-title {
+  height: 100px;
+  width: 300px;
+}
+
+.content-netabare-count {
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  border: 1px solid;
+  background-color: #5ec9fb;
+}
+
+.netabare {
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.count {
+  font-size: 10px;
+}
+
+.content-middle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 30px 0 30px;
+}
+
+.anime-image {
+  height: 200px;
+  width: 300px;
+}
+
+.content-footer {
+  padding: 20px 30px 0 30px;
+}
+
+.user-name {
+  text-align: right;
+}
