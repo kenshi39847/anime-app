@@ -55,7 +55,7 @@
 | Column | Type       | Option                         |
 |--------|------------|--------------------------------|
 | id     | integer    | null: false                    |
-| count  | interger   | null: false                    |
+| count  | integer    | null: false                    |
 | user   | references | null: false, foreign_key: true |
 | anime  | references | null: false, foreign_key: true |
 
