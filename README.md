@@ -1,24 +1,67 @@
 # README
+# DB設計
+## usersテーブル
+| Column             | Type    | Option                    |
+|--------------------|---------|---------------------------|
+| id                 | integer | null: false               |
+| name               | string  | null: false               |
+| email              | string  | null: false, unique: true |
+| encrypted_password | string  | null: false               |
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+### Association
+- has_many :animes
+- has_many :comments
+- has_many :netabares
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+## animesテーブル
+| Column            | Type       | Option                         |
+|-------------------|------------|--------------------------------|
+| id                | integer    | null: false                    |
+| title             | string     | null: false                    |
+| synopsis          | text       | null: false                    |
+| genre_id          | integer    | null: false                    |
+| good_point_id     | integer    | null: false                    |
+| recommendation_id | integer    | null: false                    |
+| text              | text       | null: false                    |
+| user              | references | null: false, foreign_key: true |
 
-* Database creation
 
-* Database initialization
+### Association
+- belongs_to :user
+- has_many :comments
+- has_one :netabare
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## commentsテーブル
+| Column  | Type       | Option                         |
+|---------|------------|--------------------------------|
+| id      | integer    | null: false                    |
+| content | text       | null: false                    |
+| user    | references | null: false, foreign_key: true |
+| anime   | references | null: false, foreign_key: true |
 
-* ...
+
+### Association
+- belongs_to :user
+- belongs_to :anime
+
+
+
+## netabaresテーブル
+| Column | Type       | Option                         |
+|--------|------------|--------------------------------|
+| id     | integer    | null: false                    |
+| count  | interger   | null: false                    |
+| user   | references | null: false, foreign_key: true |
+| anime  | references | null: false, foreign_key: true |
+
+
+### Association
+- belongs_to :user
+- belongs_to :anime
+
+
