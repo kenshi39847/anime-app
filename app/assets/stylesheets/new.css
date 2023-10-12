@@ -1,0 +1,48 @@
+.new {
+  height: 1250px;
+  width: 1380px;
+  display: flex;
+  justify-content: center;
+}
+
+.new-anime-posts {
+  height: 1000px;
+  width: 800px;
+  border: 1px solid;
+}
+
+.new-anime-post {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.new-anime-post-form {
+  padding: 30px 0 0 30px;
+}
+
+.new-form {
+  margin: 30px 0 0 0;
+}
+
+.new-anime-title-form,
+.new-anime-image-form,
+.new-anime-genre-form,
+.new-anime-good-point-form,
+.new-anime-recommendation-form {
+  width: 700px;
+  display: block;
+}
+
+.new-anime-synopsis-form,
+.new-anime-impression-form {
+  width: 700px;
+  height: 150px;
+  display: block;
+}
+
+
+.new-anime-submit-form {
+  display: block;
+  margin: 50px auto 0;
+}
