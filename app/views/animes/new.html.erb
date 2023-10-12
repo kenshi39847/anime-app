@@ -2,11 +2,11 @@
     <div class="new">
       <div class="new-anime-posts">
         <div class="new-anime-post">アニメ新規投稿</div>
-        <form class="new-anime-post-form">
+        <div class="new-anime-post-form">
+        <%= form_with model: @anime , local: true do |f| %>
           <div class="new-form">
-            <label class="new-anime-title">アニメタイトル
-              <input type="text" class="new-anime-title-form">
-            </label>
+            <%= f.label :title, "アニメタイトル" %><br />
+            <%= f.text_field :title, id:"anime-title" %>
           </div>
           <div class="new-form">
             <label class="new-anime-image">画像
@@ -14,33 +14,29 @@
             </label>
           </div>
           <div class="new-form">
-            <label class="new-anime-synopsis">あらすじ
-              <textarea class="new-anime-synopsis-form"></textarea>
-            </label>
+            <%= f.label :synopsis, "あらすじ" %><br />
+            <%= f.text_area :synopsis, id:"anime-synopsis" %>
           </div>
           <div class="new-form">
-            <label class="new-anime-genre">ジャンル
-              <input type="text" class="new-anime-genre-form">
-            </label>
+            <%= f.label :genre_id, "ジャンル" %><br />
+            <%= f.text_field :genre_id, id:"anime-genre_id" %>
           </div>
           <div class="new-form">
-            <label class="new-anime-good-point">良いところ
-              <input type="text" class="new-anime-good-point-form">
-            </label>
+            <%= f.label :good_point_id, "良いところ" %><br />
+            <%= f.text_field :good_point_id, id:"anime-good_point_id" %>
           </div>
           <div class="new-form">
-            <label class="new-anime-recommendation">どんな人におすすめか
-              <input type="text" class="new-anime-recommendation-form">
-            </label>
+            <%= f.label :recommendation_id, "どんな人におすすめか" %><br />
+            <%= f.text_field :recommendation_id, id:"recommendation_id" %>
           </div>
           <div class="new-form">
-            <label class="new-anime-impression">アニメを観た感想
-              <textarea class="new-anime-impression-form"></textarea>
-            </label>
+            <%= f.label :text, "アニメを観た感想" %><br />
+            <%= f.text_area :text, id:"anime-text" %>
           </div>
           <div class="new-form">
-            <input type="submit" value="新規投稿" class="new-anime-submit-form">
+            <%= f.submit "新規投稿" ,class:"new-anime-submit-form" %>
           </div>
-        </form>
+          <% end %>
+        </div>
       </div>
     </div>
