@@ -10,6 +10,7 @@ class Anime < ApplicationRecord
   validates :title, presence: true
   validates :synopsis, presence: true
   validates :text, presence: true
+  validates :image, presence: true
 
   with_options numericality: { other_than: 0, message: "can't be blank" } do
     validates :genre_id
