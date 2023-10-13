@@ -3,7 +3,7 @@
       <div class="new-anime-posts">
         <div class="new-anime-post">投稿内容を変更</div>
         <div class="new-anime-post-form">
-        <%= form_with model: @anime , local: true do |f| %>
+        <%= form_with model: @anime, local: true do |f| %>
         <%= render 'shared/error_messages', model: f.object %>
           <div class="new-form">
             <%= f.label :title, "アニメタイトル" %><br />

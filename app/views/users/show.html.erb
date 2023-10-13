@@ -1,3 +1,4 @@
+    <!-- マイページ -->
 <div class="anime-chart-post">
       <div class="charts">
         <div class="anime-chart">
@@ -7,19 +8,21 @@
         <%= link_to '新規投稿', new_anime_path, class:"new-post"%>
         <% end %>
       </div>
-
+      <% @animes.each do |anime|%>
       <div class="posts">
         <div class="post">
           <div class="edit-end">
             編集済み
           </div>
-          <% if current_user == @user %>
+          <% if current_user == anime.user %>
           <div class="edit-delete-button">
-            <div class="edit-button"><a href="#">編集</a></div>
+            <div class="edit-button">
+              <%= link_to '編集', edit_anime_path(anime) %>
+            </div>
             <div class="delete-button"><a href="#">削除</a></div>
           </div>
           <% end %>
-          <% @animes.each do |anime|%>
+          
           <div class="anime-content">
             <div class="content-header">
               <div class="content-anime-title">
