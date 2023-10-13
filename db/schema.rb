@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_12_050149) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_12_083106) do
+  create_table "animes", charset: "utf8", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "synopsis", null: false
+    t.integer "genre_id", null: false
+    t.integer "good_point_id", null: false
+    t.integer "recommendation_id", null: false
+    t.bigint "user_id", null: false
+    t.text "text", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_animes_on_user_id"
+  end
+
   create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false

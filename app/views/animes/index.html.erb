@@ -30,7 +30,9 @@
     <div class="anime-chart-post">
       <div class="charts">
         <div class="anime-chart">アニメ投稿一覧</div>
-        <div class="new-post"><a href="#">新規投稿</a></div>
+        <% if user_signed_in? %>
+        <%= link_to '新規投稿', new_anime_path, class:"new-post"%>
+        <% end %>
       </div>
 
       <div class="posts">
