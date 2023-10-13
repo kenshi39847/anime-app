@@ -10,9 +10,8 @@
             <%= f.text_field :title, id:"anime-title" %>
           </div>
           <div class="new-form">
-            <label class="new-anime-image">画像
-              <input type="text" class="new-anime-image-form">
-            </label>
+            <%= f.label :image, "アニメ画像" %><br>
+            <%= f.file_field :image, id:"anime-image" %>
           </div>
           <div class="new-form">
             <%= f.label :synopsis, "あらすじ" %><br />
