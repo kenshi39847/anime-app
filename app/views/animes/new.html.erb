@@ -18,16 +18,16 @@
             <%= f.text_area :synopsis, id:"anime-synopsis" %>
           </div>
           <div class="new-form">
-            <%= f.label :genre, "ジャンル" %><br />
-            <%= f.collection_select :genre, Genre.all, :id, :name %>
+            <%= f.label :genre_id, "ジャンル" %><br />
+            <%= f.collection_select :genre_id, Genre.all, :id, :name %>
           </div>
           <div class="new-form">
-            <%= f.label :good_point, "良いところ" %><br />
-            <%= f.collection_select :good_point, GoodPoint.all, :id, :name %>
+            <%= f.label :good_point_id, "良いところ" %><br />
+            <%= f.collection_select :good_point_id, GoodPoint.all, :id, :name %>
           </div>
           <div class="new-form">
-            <%= f.label :recommendation, "どんな人におすすめか" %><br />
-            <%= f.collection_select :recommendation, Recommendation.all, :id, :name %>
+            <%= f.label :recommendation_id, "どんな人におすすめか" %><br />
+            <%= f.collection_select :recommendation_id, Recommendation.all, :id, :name %>
           </div>
           <div class="new-form">
             <%= f.label :text, "アニメを観た感想" %><br />

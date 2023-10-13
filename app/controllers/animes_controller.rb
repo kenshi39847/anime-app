@@ -7,12 +7,17 @@ class AnimesController < ApplicationController
   end
 
   def create
-    Anime.create(anime_params)
-    redirect_to root_path
+    @anime = Anime.new(anime_params)
+    binding.pry
+    if @anime.save
+      return redirect_to root_path
+    else
+      render 'new', status: :unprocessable_entity
+    end
   end
 
   private
   def anime_params
-    params.require(:anime).permit(:title, :synopsis, :genre, :good_point, :recommendation, :text).merge(user_id: current_user.id)
+    params.require(:anime).permit(:title, :synopsis, :genre_id, :good_point_id, :recommendation_id, :text).merge(user_id: current_user.id)
   end
 end
