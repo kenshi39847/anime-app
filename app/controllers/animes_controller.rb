@@ -7,12 +7,13 @@ class AnimesController < ApplicationController
   end
 
   def create
+    binding.pry
     Anime.create(anime_params)
-    redirect_to '/'
+    redirect_to root_path
   end
 
   private
   def anime_params
-    params.require(:anime).permit(:title, :synopsis, :genre_id, :good_point_id, :recommendation_id, :text).merge(user_id: current_user.id)
+    params.require(:anime).permit(:title, :synopsis, :genre, :good_point, :recommendation, :text).merge(user_id: current_user.id)
   end
 end
