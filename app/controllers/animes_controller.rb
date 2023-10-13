@@ -7,7 +7,6 @@ class AnimesController < ApplicationController
   end
 
   def create
-    binding.pry
     Anime.create(anime_params)
     redirect_to root_path
   end
