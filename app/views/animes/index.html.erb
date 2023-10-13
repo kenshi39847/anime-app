@@ -53,7 +53,7 @@
               </div>
             </div>
             <div class="content-middle">
-              <img src="images/sample1.png" alt="サンプル画像" class="anime-image">
+              <%= image_tag anime.image.variant(resize: '200x300'), class: 'content-image' if anime.image.attached? %>
             </div>
             <div class="content-footer">
               <div class="content-genre">ジャンル:</div>
