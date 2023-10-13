@@ -18,6 +18,6 @@ class AnimesController < ApplicationController
 
   private
   def anime_params
-    params.require(:anime).permit(:title, :synopsis, :genre_id, :good_point_id, :recommendation_id, :text).merge(user_id: current_user.id)
+    params.require(:anime).permit(:title, :synopsis, :genre_id, :good_point_id, :recommendation_id, :text, :image).merge(user_id: current_user.id)
   end
 end
