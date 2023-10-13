@@ -8,7 +8,6 @@ class AnimesController < ApplicationController
 
   def create
     @anime = Anime.new(anime_params)
-    binding.pry
     if @anime.save
       return redirect_to root_path
     else
