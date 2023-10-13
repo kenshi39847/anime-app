@@ -40,11 +40,12 @@
           <div class="edit-end">
             編集済み
           </div>
+          <% @animes.each do |anime|%>
           <div class="anime-content">
             <div class="content-header">
               <div class="content-anime-title">
                 <div class="content-anime">アニメタイトル</div>
-                <div class="content-title">無職転生～異世界行ったら本気だす～</div>
+                <%= anime.title %>
               </div>
               <div class="content-netabare-count">
                 <div class="netabare">5</div>
@@ -56,72 +57,18 @@
             </div>
             <div class="content-footer">
               <div class="content-genre">ジャンル:</div>
+              <%= anime.genre.name %>
               <div class="content-good-point">良いところ:</div>
+              <%= anime.good_point.name %>
               <div class="content-recommendation">どんな人におすすめか:</div>
+              <%= anime.recommendation.name %>
             </div>
           </div>
+          <% end %>
           <div class="user-name">
             投稿者名
           </div>
-        </div>
-      
-
-        <div class="post">
-          <div class="edit-end">
-            編集済み
-          </div>
-          <div class="anime-content">
-            <div class="content-header">
-              <div class="content-anime-title">
-                <div class="content-anime">アニメタイトル</div>
-                <div class="content-title">チェンソーマン</div>
-              </div>
-              <div class="content-netabare-count">
-                <div class="netabare">0</div>
-                <div class="count">ネタバレカウント</div>
-              </div>
-            </div>
-            <div class="content-middle">
-              <img src="images/sample1.png" alt="サンプル画像" class="anime-image">
-            </div>
-            <div class="content-footer">
-              <div class="content-genre">ジャンル:</div>
-              <div class="content-good-point">良いところ:</div>
-              <div class="content-recommendation">どんな人におすすめか:</div>
-            </div>
-          </div>
-          <div class="user-name">
-            投稿者名
-          </div>
-        </div>
-
-        <div class="post">
-          <div class="edit-end">
-            編集済み
-          </div>
-          <div class="anime-content">
-            <div class="content-header">
-              <div class="content-anime-title">
-                <div class="content-anime">アニメタイトル</div>
-                <div class="content-title"></div>
-              </div>
-              <div class="content-netabare-count">
-                <div class="netabare">2</div>
-                <div class="count">ネタバレカウント</div>
-              </div>
-            </div>
-            <div class="content-middle">
-              <img src="images/sample1.png" alt="サンプル画像" class="anime-image">
-            </div>
-            <div class="content-footer">
-              <div class="content-genre">ジャンル:</div>
-              <div class="content-good-point">良いところ:</div>
-              <div class="content-recommendation">どんな人におすすめか:</div>
-            </div>
-          </div>
-          <div class="user-name">
-            投稿者名
-          </div>
+          
         </div>
 
       </div>
