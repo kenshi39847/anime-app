@@ -34,13 +34,12 @@
         <%= link_to '新規投稿', new_anime_path, class:"new-post"%>
         <% end %>
       </div>
-
+      <% @animes.each do |anime|%>
       <div class="posts">
         <div class="post">
           <div class="edit-end">
             編集済み
           </div>
-          <% @animes.each do |anime|%>
           <div class="anime-content">
             <div class="content-header">
               <div class="content-anime-title">

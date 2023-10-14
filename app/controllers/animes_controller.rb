@@ -30,6 +30,12 @@ class AnimesController < ApplicationController
      end
   end
 
+  def destroy
+    anime = Anime.find(params[:id])
+    anime.destroy
+    redirect_to root_path
+  end
+
   private
   def anime_params
     params.require(:anime).permit(:title, :synopsis, :genre_id, :good_point_id, :recommendation_id, :text, :image).merge(user_id: current_user.id)
