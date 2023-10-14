@@ -23,12 +23,16 @@ class AnimesController < ApplicationController
 
   def update
     @anime = Anime.find(params[:id])
-    @anime.update(tweet_params)
-    redirect_to root_path
+     if @anime.update(anime_params)
+      redirect_to root_path
+     else
+      render :edit, status: :unprocessable_entity
+     end
   end
 
   private
   def anime_params
     params.require(:anime).permit(:title, :synopsis, :genre_id, :good_point_id, :recommendation_id, :text, :image).merge(user_id: current_user.id)
   end
+
 end

@@ -11,9 +11,11 @@
       <% @animes.each do |anime|%>
       <div class="posts">
         <div class="post">
+        
           <div class="edit-end">
             編集済み
           </div>
+
           <% if current_user == anime.user %>
           <div class="edit-delete-button">
             <div class="edit-button">
