@@ -38,6 +38,10 @@ class AnimesController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @anime = Anime.find(params[:id])
+  end
+
   private
   def anime_params
     params.require(:anime).permit(:title, :synopsis, :genre_id, :good_point_id, :recommendation_id, :text, :image).merge(user_id: current_user.id)
