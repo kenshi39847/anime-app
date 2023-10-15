@@ -13,7 +13,7 @@
         <div class="post">
         
           <div class="edit-end">
-            編集済み
+            <%= "編集済み" if anime.edited %>
           </div>
 
           <% if current_user == anime.user %>

@@ -24,6 +24,7 @@ class AnimesController < ApplicationController
   def update
     @anime = Anime.find(params[:id])
      if @anime.update(anime_params)
+      @anime.update(edited: true)
       redirect_to root_path
      else
       render :edit, status: :unprocessable_entity
