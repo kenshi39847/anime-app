@@ -1,0 +1,74 @@
+<!-- 検索欄 -->
+    <div class="anime-search">
+      アニメを探す
+    </div>
+    <div class="search-forms">
+      <%= form_with(url: search_animes_path, local: true, method: :get, class: "form") do |form| %>
+        <div class="search-form">
+          <%= form.label :title, "アニメタイトル" %><br />
+          <%= form.text_field :title, id:"anime-title" %>
+        </div>
+        <div class="search-form">
+          <%= form.label :genre_id, "ジャンル" %><br />
+          <%= form.collection_select :genre_id, Genre.all, :id, :name %>
+        </div>
+        <div class="search-form">
+          <%= form.label :good_point_id, "良いところ" %><br />
+          <%= form.collection_select :good_point_id, GoodPoint.all, :id, :name %>
+        </div>
+        <div class="search-form">
+          <%= form.label :recommendation_id, "どんな人におすすめか" %><br />
+          <%= form.collection_select :recommendation_id, Recommendation.all, :id, :name %>
+        </div>
+        <div class="search-form">
+          <%= form.submit "検索" ,class:"search" %>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- アニメ投稿一覧 -->
+    <div class="anime-chart-post">
+      <div class="charts">
+        <div class="anime-chart">アニメ投稿一覧</div>
+        <% if user_signed_in? %>
+        <%= link_to '新規投稿', new_anime_path, class:"new-post"%>
+        <% end %>
+      </div>
+      <% @animes.each do |anime|%>
+      <div class="posts">
+        <div class="post">
+          <div class="edit-end">
+            <%= "編集済み" if anime.edited %>
+          </div>
+          <div class="anime-content">
+            <div class="content-header">
+              <div class="content-anime-title">
+                <div class="content-anime">アニメタイトル</div>
+                <%= link_to anime.title, anime_path(anime) %>
+              </div>
+              <div class="content-netabare-count">
+                <div class="netabare">5</div>
+                <div class="count">ネタバレカウント</div>
+              </div>
+            </div>
+            <div class="content-middle">
+              <%= image_tag anime.image.variant(resize: '200x300'), class: 'content-image' if anime.image.attached? %>
+            </div>
+            <div class="content-footer">
+              <div class="content-genre">ジャンル:</div>
+              <%= anime.genre.name %>
+              <div class="content-good-point">良いところ:</div>
+              <%= anime.good_point.name %>
+              <div class="content-recommendation">どんな人におすすめか:</div>
+              <%= anime.recommendation.name %>
+            </div>
+          </div>
+          
+          <div class="user-name">
+            <%= link_to anime.user.name, user_path(anime.user) %>
+          </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
