@@ -17,4 +17,12 @@ class Anime < ApplicationRecord
     validates :good_point_id
     validates :recommendation_id
   end
+
+  def self.search(search)
+    if search != ""
+      Anime.where('title LIKE(?)', "%#{search}%")
+    else
+      Anime.none
+    end
+  end
 end
