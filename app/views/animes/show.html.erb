@@ -1,0 +1,58 @@
+    <div class="posts">
+      <div class="post">
+        <div class="edit-delete">
+          <div class="edit-end">
+          <%= "編集済み" if anime.edited %>
+          </div>
+          <% if current_user == anime.user %>
+          <div class="edit-delete-button">
+            <div class="edit-button">
+              <%= link_to '編集', edit_anime_path(anime) %>
+            </div>
+            <div class="delete-button">
+              <%= link_to '削除', anime_path(anime), data: { turbo_method: :delete } %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <div class="show-anime-contents">
+          <div class="show-anime-content-header">
+            <div class="show-anime-left">
+              <%= image_tag anime.image.variant(resize: '100x100'), class: 'content-image' if anime.image.attached? %>
+            </div>
+            <div class="show-anime-right">
+              <div class="show-anime-title-nickname">
+                <div class="show-anime-title">アニメタイトル</div>
+                <div class="show-anime-title-name">
+                <%= anime.title %>
+                </div>
+                <div class="show-anime-nickname">
+                <%= anime.user.name %>
+                </div>
+              </div>
+              <div class="show-anime-netabare">
+                <div class="show-anime-netabare-counter">
+                  <div class="show-anime-netabare-count-number">3</div>
+                  <div class="show-anime-netabare-count">ネタバレカウント</div>
+                </div>
+                <form class="show-anime-netabare-button">
+                  <input type="submit" value="ネタバレボタン" class="show-anime-netabare-button-form">
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="show-anime-content-footer">
+            <div class="show-anime-synopsis">あらすじ</div>
+            <%= anime.synopsis %>
+            <div class="show-anime-genre">ジャンル</div>
+            <%= anime.genre.name %>
+            <div class="show-anime-good-point">良いところ</div>
+            <%= anime.good_point.name %>
+            <div class="show-anime-recommendation">どんな人におすすめか</div>
+            <%= anime.recommendation.name %>
+            <div class="show-anime-impression">アニメを観た感想</div>
+            <%= anime.text %>
+          </div>
+        </div>
+      </div>
+    </div>
