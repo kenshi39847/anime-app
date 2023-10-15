@@ -13,11 +13,11 @@
   <body>
     <!-- ヘッダー -->
     <header class="header">
-      <div class="app-name"><a href="/">App Name</a></div>
+      <div class="app-name"><a href="/">Anime App</a></div>
       <% if user_signed_in? %>
         <div class="header-lists">
           <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "log-out" %>
-          <%= link_to current_user.name, user_path(current_user) %>
+          <%= link_to current_user.name, user_path(current_user), class: "current-user-name" %>
         </div>
       <% else %>
         <div class="header-lists">
