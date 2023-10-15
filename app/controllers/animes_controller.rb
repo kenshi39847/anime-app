@@ -42,6 +42,10 @@ class AnimesController < ApplicationController
     @anime = Anime.find(params[:id])
   end
 
+  def search
+    @animes = Anime.search(params[:title, :genre_id, :good_point_id, :recommendation_id])
+  end
+
   private
   def anime_params
     params.require(:anime).permit(:title, :synopsis, :genre_id, :good_point_id, :recommendation_id, :text, :image).merge(user_id: current_user.id)
