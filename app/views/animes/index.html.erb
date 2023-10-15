@@ -3,27 +3,27 @@
       アニメを探す
     </div>
     <div class="search-forms">
-      <form class="forms">
+      <%= form_with(url: search_animes_path, local: true, method: :get, class: "form") do |form| %>
         <div class="search-form">
-          <label for="anime-title" class="title">アニメタイトル</label>
-          <input type="text" id="anime-title" placeholder="タイトルを入力" class="title-form">
+          <%= form.label :title, "アニメタイトル" %><br />
+          <%= form.text_field :title, id:"anime-title" %>
         </div>
         <div class="search-form">
-          <label for="genre_id" class="genre">ジャンル</label>
-          <input type="text" id="genre_id" class="genre-form">
+          <%= form.label :genre_id, "ジャンル" %><br />
+          <%= form.collection_select :genre_id, Genre.all, :id, :name %>
         </div>
         <div class="search-form">
-          <label for="good_point_id" class="good-point">良いところ</label>
-          <input type="text" id="good_point_id" class="good-point-form">
+          <%= form.label :good_point_id, "良いところ" %><br />
+          <%= form.collection_select :good_point_id, GoodPoint.all, :id, :name %>
         </div>
         <div class="search-form">
-          <label for="recommendation_id" class="recommendation">どんな人におすすめか</label>
-          <input type="text" id="recommendation_id" class="recommendation-form">
+          <%= form.label :recommendation_id, "どんな人におすすめか" %><br />
+          <%= form.collection_select :recommendation_id, Recommendation.all, :id, :name %>
         </div>
         <div class="search-form">
-          <input type="submit" value="検索" class="search">
+          <%= form.submit "検索" ,class:"search" %>
         </div>
-      </form>
+      <% end %>
     </div>
 
     <!-- アニメ投稿一覧 -->
