@@ -3,6 +3,8 @@ class AnimesController < ApplicationController
   before_action :redirect_to_index, only: [:edit, :update, :destroy]
   def index
     @animes = Anime.all
+    @q = Anime.ransack(params[:q])
+    animes = @q.result(distinct: true)
   end
 
   def new
@@ -40,6 +42,11 @@ class AnimesController < ApplicationController
 
   def show
     @anime = Anime.find(params[:id])
+  end
+
+  def search
+    @q = Anime.ransack(params[:q])
+    @animes = @q.result(distinct: true)
   end
 
   private

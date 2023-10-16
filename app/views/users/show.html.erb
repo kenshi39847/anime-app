@@ -8,30 +8,34 @@
         <%= link_to '新規投稿', new_anime_path, class:"new-post"%>
         <% end %>
       </div>
-      <% @animes.each do |anime|%>
+      
       <div class="posts">
+      <% @animes.each do |anime|%>
         <div class="post">
-
-          <div class="edit-end">
-            <%= "編集済み" if anime.edited %>
-          </div>
-
-          <% if current_user == anime.user %>
-          <div class="edit-delete-button">
-            <div class="edit-button">
-              <%= link_to '編集', edit_anime_path(anime) %>
+          <div class="edited-edit-delete">
+            <div class="edit-end">
+            <% if anime.edited %>
+              <div class="edit-end-view"><%= "編集済み" %></div>
+            <% end %>
             </div>
-            <div class="delete-button">
-              <%= link_to '削除', anime_path(anime), data: { turbo_method: :delete } %>
+
+            <% if current_user == anime.user %>
+            <div class="edit-delete-button">
+              <div class="content-edit">
+                <%= link_to '編集', edit_anime_path(anime), class: "edit-button" %>
+              </div>
+              <div class="content-delete">
+              <%= link_to '削除', anime_path(anime), data: { turbo_method: :delete }, class: "delete-button" %>
+              </div>
             </div>
+            <% end %>
           </div>
-          <% end %>
           
           <div class="anime-content">
             <div class="content-header">
               <div class="content-anime-title">
                 <div class="content-anime">アニメタイトル</div>
-                <%= anime.title %>
+                <%= link_to anime.title, anime_path(anime), class: "content-anime-title" %>
               </div>
               <div class="content-netabare-count">
                 <div class="netabare">5</div>
@@ -42,20 +46,30 @@
               <%= image_tag anime.image.variant(resize: '200x300'), class: 'content-image' if anime.image.attached? %>
             </div>
             <div class="content-footer">
-              <div class="content-genre">ジャンル:</div>
-              <%= anime.genre.name %>
-              <div class="content-good-point">良いところ:</div>
-              <%= anime.good_point.name %>
-              <div class="content-recommendation">どんな人におすすめか:</div>
-              <%= anime.recommendation.name %>
+            <table class="detail-table">
+              <tbody>
+                <tr>
+                  <th class="detail-anime">ジャンル</th>
+                  <td class="detail-value"><%= anime.genre.name %></td>
+                </tr>
+                <tr>
+                  <th class="detail-anime">良いところ</th>
+                  <td class="detail-value"><%= anime.good_point.name %></td>
+                </tr>
+                <tr>
+                  <th class="detail-anime">どんな人におすすめか</th>
+                  <td class="detail-value"><%= anime.recommendation.name %></td>
+                </tr>
+              </tbody>
+            </table>
             </div>
           </div>
           
-          <div class="user-name">
-            <%= anime.user.name %>
+          <div class="content-user-name">
+            <%= link_to anime.user.name, user_path(anime.user) %>
           </div>
-          <% end %>
+          
         </div>
-
+        <% end %>
       </div>
     </div>

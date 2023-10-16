@@ -1,40 +1,40 @@
     <!-- 新規投稿 -->
-    <div class="new">
+    <div class="new-anime">
       <div class="new-anime-posts">
         <div class="new-anime-post">アニメ新規投稿</div>
         <div class="new-anime-post-form">
-        <%= form_with model: @anime , local: true do |f| %>
+        <%= form_with model: @anime, local: true do |f| %>
         <%= render 'shared/error_messages', model: f.object %>
           <div class="new-form">
             <%= f.label :title, "アニメタイトル" %><br />
-            <%= f.text_field :title, id:"anime-title" %>
+            <%= f.text_field :title, id:"anime-title", class: "new-anime-title" %>
           </div>
           <div class="new-form">
             <%= f.label :image, "アニメ画像" %><br>
-            <%= f.file_field :image, id:"anime-image" %>
+            <%= f.file_field :image, id:"anime-image", class: "new-anime-image" %>
           </div>
           <div class="new-form">
             <%= f.label :synopsis, "あらすじ" %><br />
-            <%= f.text_area :synopsis, id:"anime-synopsis" %>
+            <%= f.text_area :synopsis, id:"anime-synopsis", class: "new-anime-synopsis" %>
           </div>
           <div class="new-form">
             <%= f.label :genre_id, "ジャンル" %><br />
-            <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+            <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: '--', class: "new-anime-genre" %>
           </div>
           <div class="new-form">
             <%= f.label :good_point_id, "良いところ" %><br />
-            <%= f.collection_select :good_point_id, GoodPoint.all, :id, :name %>
+            <%= f.collection_select :good_point_id, GoodPoint.all, :id, :name, prompt: '--', class: "new-anime-good_point" %>
           </div>
           <div class="new-form">
             <%= f.label :recommendation_id, "どんな人におすすめか" %><br />
-            <%= f.collection_select :recommendation_id, Recommendation.all, :id, :name %>
+            <%= f.collection_select :recommendation_id, Recommendation.all, :id, :name, prompt: '--', class: "new-anime-recommendation" %>
           </div>
           <div class="new-form">
             <%= f.label :text, "アニメを観た感想" %><br />
-            <%= f.text_area :text, id:"anime-text" %>
+            <%= f.text_area :text, id:"anime-text", class: "new-anime-text" %>
           </div>
           <div class="new-form">
-            <%= f.submit "新規投稿" ,class:"new-anime-submit-form" %>
+            <%= f.submit "新規投稿" ,class:"new-anime-submit" %>
           </div>
           <% end %>
         </div>

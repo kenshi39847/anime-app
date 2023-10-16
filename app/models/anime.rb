@@ -17,4 +17,8 @@ class Anime < ApplicationRecord
     validates :good_point_id
     validates :recommendation_id
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["title", "genre_id", "good_point_id", "recommendation_id"]
+  end
 end
