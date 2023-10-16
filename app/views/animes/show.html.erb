@@ -1,27 +1,28 @@
+  <div class="show-post-comment">
     <div class="show-posts">
       <div class="show-post">
         <div class="edited-edit-delete">
           <div class="edit-end">
-          <% if @anime.edited %>
-            <div class="edit-end-view"><%= "編集済み" %></div>
-          <% end %>
-          <% if current_user == @anime.user %>
-            <div class="edit-delete-button">
+            <% if @anime.edited %>
+              <div class="edit-end-view"><%= "編集済み" %></div>
+            <% end %>
+          </div>
+          <div class="edit-delete-button">
+            <% if current_user == @anime.user %>
               <div class="content-edit">
                 <%= link_to '編集', edit_anime_path(@anime), class: "edit-button" %>
               </div>
               <div class="content-delete">
-              <%= link_to '削除', anime_path(@anime), data: { turbo_method: :delete }, class: "delete-button" %>
+                <%= link_to '削除', anime_path(@anime), data: { turbo_method: :delete }, class: "delete-button" %>
               </div>
-            </div>
-          <% end %>
+            <% end %>
           </div>
         </div>
 
         <div class="show-anime-content">
           <div class="show-anime-content-header">
             <div class="show-anime-header-left">
-              <%= image_tag @anime.image.variant(resize: '100x100'), class: 'show-anime-image' if @anime.image.attached? %>
+              <%= image_tag @anime.image.variant(resize: '200x200'), class: 'show-anime-image' if @anime.image.attached? %>
             </div>
             <div class="show-anime-header-right">
               <div class="show-anime-title-user">
@@ -73,3 +74,30 @@
         </div>
       </div>
     </div>
+
+      <div class="comments-replies">
+        <div class="comments-container">
+          <div class="comments-questions">コメントや質問</div>
+          <div class="comments">
+            <% if user_signed_in? %>
+              <%= form_with(model: [@anime, @comment], local: true) do |form| %>
+                <%= form.text_area :content, placeholder: "コメントする", rows: "2" %>
+                <%= form.submit "送信" %>
+              <% end %>
+            <% else %>
+            <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+            <% end %>
+            <div class="comments">
+              <h4>＜コメント一覧＞</h4>
+                <% @comments.each do |comment| %>
+                  <p>
+                    <strong><%= link_to comment.user.name, user_path(comment.user_id) %>：</strong>
+                    <%= comment.content %>
+                  </p>
+                <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </div>
