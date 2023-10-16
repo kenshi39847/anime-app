@@ -39,7 +39,9 @@
       <% @animes.each do |anime|%>
         <div class="post">
           <div class="edit-end">
-            <%= "編集済み" if anime.edited %>
+            <% if anime.edited %>
+              <div class="edit-end-view"><%= "編集済み" %></div>
+            <% end %>
           </div>
           
           <div class="anime-content">
