@@ -18,11 +18,7 @@ class Anime < ApplicationRecord
     validates :recommendation_id
   end
 
-  def self.search(search)
-    if search != ""
-      Anime.where('title LIKE(?)', "%#{search}%")
-    else
-      Anime.none
-    end
+  def self.ransackable_attributes(auth_object = nil)
+    ["title", "genre_id", "good_point_id", "recommendation_id"]
   end
 end

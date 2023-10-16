@@ -1,41 +1,40 @@
 <!-- 検索欄 -->
-    <div class="anime-search">
-      アニメを探す
-    </div>
-    <div class="search-forms">
-      <%= form_with(url: search_animes_path, local: true, method: :get, class: "form") do |form| %>
+  <div class="anime-search">
+    アニメを探す
+  </div>
+  <div class="search-forms">
+    <%= search_form_for @q, url: search_animes_path, html: {id: "detailed-search-form"} do |form| %>
+      <div class="form">
         <div class="search-form">
-          <%= form.label :title, "アニメタイトル" %><br />
-          <%= form.text_field :title, id:"anime-title", class: "search-anime-title" %>
+          <%= form.label :title_cont, "アニメタイトル" %><br />
+          <%= form.text_field :title_cont, placeholder: 'アニメタイトルを入力' %>
         </div>
         <div class="search-form">
-          <%= form.label :genre_id, "ジャンル" %><br />
-          <%= form.collection_select :genre_id, Genre.all, :id, :name, class: "search-genre" %>
+          <%= form.label :genre_id_eq, "ジャンル" %><br />
+          <%= form.collection_select(:genre_id_eq, Genre.all, :id, :name, {include_blank: "--"}) %>
         </div>
         <div class="search-form">
-          <%= form.label :good_point_id, "良いところ" %><br />
-          <%= form.collection_select :good_point_id, GoodPoint.all, :id, :name, class: "search-good_point" %>
+          <%= form.label :good_point_id_eq, "良いところ" %><br />
+          <%= form.collection_select(:good_point_id_eq, GoodPoint.all, :id, :name, {include_blank: "--"})  %>
         </div>
         <div class="search-form">
-          <%= form.label :recommendation_id, "どんな人におすすめか" %><br />
-          <%= form.collection_select :recommendation_id, Recommendation.all, :id, :name, class: "search-recommendation" %>
+          <%= form.label :recommendation_id_eq, "どんな人におすすめか" %><br />
+          <%= form.collection_select(:recommendation_id_eq, Recommendation.all, :id, :name, {include_blank: "--"}) %>
         </div>
         <div class="search-form">
-          <%= form.submit "検索" ,class:"search" %>
+          <%= form.submit '検索' %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
+  </div>
 
     <!-- アニメ投稿一覧 -->
     <div class="anime-chart-post">
       <div class="charts">
-        <div class="anime-chart">アニメ投稿一覧</div>
-        <% if user_signed_in? %>
-        <%= link_to '新規投稿', new_anime_path, class:"new-post"%>
-        <% end %>
+        <div class="anime-chart">検索結果一覧</div>
       </div>
-      <% @animes.each do |anime|%>
       <div class="posts">
+      <% @animes.each do |anime|%>
         <div class="post">
           <div class="edit-end">
             <%= "編集済み" if anime.edited %>
@@ -67,8 +66,7 @@
           <div class="user-name">
             <%= link_to anime.user.name, user_path(anime.user) %>
           </div>
-          <% end %>
         </div>
-
+        <% end %>
       </div>
     </div>

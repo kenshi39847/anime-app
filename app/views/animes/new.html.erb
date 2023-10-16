@@ -19,15 +19,15 @@
           </div>
           <div class="new-form">
             <%= f.label :genre_id, "ジャンル" %><br />
-            <%= f.collection_select :genre_id, Genre.all, :id, :name, class: "new-anime-genre" %>
+            <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: '--', class: "new-anime-genre" %>
           </div>
           <div class="new-form">
             <%= f.label :good_point_id, "良いところ" %><br />
-            <%= f.collection_select :good_point_id, GoodPoint.all, :id, :name, class: "new-anime-good_point" %>
+            <%= f.collection_select :good_point_id, GoodPoint.all, :id, :name, prompt: '--', class: "new-anime-good_point" %>
           </div>
           <div class="new-form">
             <%= f.label :recommendation_id, "どんな人におすすめか" %><br />
-            <%= f.collection_select :recommendation_id, Recommendation.all, :id, :name, class: "new-anime-recommendation" %>
+            <%= f.collection_select :recommendation_id, Recommendation.all, :id, :name, prompt: '--', class: "new-anime-recommendation" %>
           </div>
           <div class="new-form">
             <%= f.label :text, "アニメを観た感想" %><br />
