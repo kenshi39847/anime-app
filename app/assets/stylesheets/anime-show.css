@@ -84,23 +84,3 @@
   font-size: 20px;
 }
 
-/* --------------------コメント-------------------- */
-.comments-replies {
-  width: 100%;
-  padding: 30px;
-  background-color: rgb(255, 0, 208);
-}
-
-
-.comments {
-  padding: 5px;
-  margin-top: 15px;
-}
-
-.comments a {
-  color: #57C3E9;
-}
-
-.comments a:hover {
-  text-decoration: underline;
-}
