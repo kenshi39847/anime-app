@@ -14,7 +14,7 @@
 
 .show-anime-content {
   width: 500px;
-  height: 800px;
+  height: 700px;
   border: 2px solid;
 }
 
@@ -65,8 +65,8 @@
 }
 
 .show-anime-detail-table {
-  width: 400px;
-  padding: 0 20px 0 20px;
+  width: 500px;
+  padding: 20px 20px 0 20px;
 }
 
 .show-anime-detail-anime {

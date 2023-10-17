@@ -75,29 +75,59 @@
       </div>
     </div>
 
-      <div class="comments-replies">
-        <div class="comments-container">
-          <div class="comments-questions">コメントや質問</div>
-          <div class="comments">
+    <div class="comments-replies">
+      <div class="comments-container">
+        <div class="comments-questions">コメントや質問</div>
+        <div class="comments">
+        
+          <% @comments.each do |comment| %>
+            <% if comment.parent_id.present? || comment.id.blank? %>
+              <% next %>
+            <% end %>
+            <hr>
+            <p> <%= comment.user.name %> さん : <%=comment.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+            <p> <%=comment.content%></p>
+            <div id="reply_area">
+              <% comment.replies.order(:created_at).each do |reply| %>
+                <p> <%= reply.user.name %> さん : <%=reply.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+                <p> <%=reply.content%></p>
+              <% end %>
+            </div>
+            
+          
             <% if user_signed_in? %>
-              <%= form_with(model: [@anime, @comment], local: true) do |form| %>
-                <%= form.text_area :content, placeholder: "コメントする", rows: "2" %>
-                <%= form.submit "送信" %>
+              <%= form_with(model:[@anime, @comment_reply]) do |form| %>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <textarea class="form-control input-form" name="comment[content]" rows="2"><%=@comment_reply.content%></textarea>
+                  </div>
+                </div>
+                <%= form.hidden_field :anime_id, value: @anime.id %>
+                <%= form.hidden_field :parent_id, value: comment.id%>
+                <div class="actions">
+                  <%= form.submit '返信する'%>
+                </div>
               <% end %>
             <% else %>
-            <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+              <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
             <% end %>
-            <div class="comments">
-              <h4>＜コメント一覧＞</h4>
-                <% @comments.each do |comment| %>
-                  <p>
-                    <strong><%= link_to comment.user.name, user_path(comment.user_id) %>：</strong>
-                    <%= comment.content %>
-                  </p>
-                <% end %>
-            </div>
-          </div>
+            
+          <% end %>
+    
+            <% if user_signed_in? %>
+              <%= form_with(model:[@anime,@comment]) do |form| %>
+                <p><label>コメントや質問を記入</label></p>
+                <textarea class="form-control input-form" name="comment[content]" rows="5"><%=@comment.content%></textarea>
+                <%= form.hidden_field :anime_id, value: @anime.id %>
+                <div class="actions">
+                  <%= form.submit '送信する' %>
+                </div>
+              <% end %>
+            <% else %>
+              <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+            <% end %>
+
         </div>
       </div>
-
+    </div>
   </div>

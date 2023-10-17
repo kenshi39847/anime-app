@@ -15,10 +15,10 @@
         </div>
         <div class="search-form">
           <%= form.label :good_point_id_eq, "良いところ" %><br />
-          <%= form.collection_select(:good_point_id_eq, GoodPoint.all, :id, :name, {include_blank: "--"})  %>
+          <%= form.collection_select(:good_point_id_eq, GoodPoint.all, :id, :name, {include_blank: "--"}) %>
         </div>
         <div class="search-form">
-          <%= form.label :recommendation_id_in, "どんな人におすすめか" %><br />
+          <%= form.label :recommendation_id_eq, "どんな人におすすめか" %><br />
           <%= form.collection_select(:recommendation_id_eq, Recommendation.all, :id, :name, {include_blank: "--"}) %>
         </div>
         <div class="search-form">
