@@ -4,12 +4,11 @@ dd {
   margin: 0;
   padding: 0;
 }
+
 /* アコーディオンメニューの大きさ */
 .accordion {
   background-color: aqua;
 }
-
-
 
 /* アコーディオンメニューの間隔 */
 .accordion-box:not(:first-child) {
@@ -17,7 +16,7 @@ dd {
 }
   
 /* 質問部分 */
-.question {
+#question {
   width: 800px;
   background: #52a261;
   padding: 20px 20px 20px 80px;
@@ -25,13 +24,13 @@ dd {
   color: #fff;
   font-weight: 700;
   position: relative;
-  border: 2px solid ;
+  border: 2px solid;
 }
   
   
 /* プラスマークアイコン */
-.question span::before,
-.question span::after {
+#question span::before,
+#question span::after {
   content: '';
   display: block;
   width: 30px;
@@ -45,23 +44,23 @@ dd {
 }
 
 /* プラスマークアイコンの横棒の位置調整など*/
-.question span::before {
+#question span::before {
   right: 30px;
 }
   
 /* プラスマークアイコンの縦棒の位置調整など*/
-.question span::after {
+#question span::after {
   right: 30px;
   transform: translateY(-50%) rotate(90deg);
 }
 
 /* 回答部分が開いている時は縦棒を横にする*/
-.question span.open::after {
+#question span.open::after {
   transform: translateY(-50%) rotate(0);
 }
 
 /* 回答部分は最初非表示 */
-.answer {
+#answer {
   display: none;/* 非表示にしておく */
   padding: 20px 20px 20px 80px;
   font-size: 18px;

@@ -81,41 +81,52 @@
           <div class="comments-questions">コメントや質問</div>
         </div>
         <div class="accordion">
-          <% @comments.each do |comment| %>
-            <dl class="accordion-box">
-              <dt class="question"><span></span>
+
+          <dl class="accordion-box">
+            <% @comments.each do |comment| %>
+              <dt id="question"><span></span>
+              
                 <% if comment.parent_id.present? || comment.id.blank? %>
                   <% next %>
                 <% end %>
-                <p> <%= comment.user.name %> さん : <%=comment.created_at.strftime("%Y-%m-%d %H:%M") %></p>
-                <p> <%=comment.content%></p>
+                
+                <div id="comment_area">
+                  <p> <%= comment.user.name %> さん : <%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+                  <p> <%= comment.content %></p>
+                </div>
                 <div id="reply_area">
                   <% comment.replies.order(:created_at).each do |reply| %>
-                    <p> <%= reply.user.name %> さん : <%=reply.created_at.strftime("%Y-%m-%d %H:%M") %></p>
-                    <p> <%=reply.content%></p>
+                    <p> <%= reply.user.name %> さん : <%= reply.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+                    <p> <%= reply.content %></p>
                   <% end %>
                 </div>
+               
               </dt><!-- /.question -->
-              <dd class="answer">
+            
+              <dd id="answer">
+
                 <% if user_signed_in? %>
                   <%= form_with(model:[@anime, @comment_reply]) do |form| %>
                     <div class="row">
                       <div class="form-group col-md-6">
-                        <%= form.text_area :content, class: "form-control input-form", rows: 2, placeholder: "返信を入力してください" %>
+                        <%= form.text_area :content, rows: 2, placeholder: "返信を入力してください" %>
                       </div>
                     </div>
                     <%= form.hidden_field :anime_id, value: @anime.id %>
-                    <%= form.hidden_field :parent_id, value: comment.id%>
+                    <%= form.hidden_field :parent_id, value: comment.id %>
                     <div class="reply-actions">
                       <%= form.submit '返信する'%>
-                   </div>
+                    </div>
                   <% end %>
                 <% else %>
                   <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
                 <% end %>
+              
               </dd><!-- /.answer -->
-            </dl><!-- /.accordion-box -->
-          <% end %>
+            <% end %>
+            
+          </dl><!-- /.accordion-box -->
+          
 
           <% if user_signed_in? %>
             <%= form_with(model:[@anime,@comment]) do |form| %>
