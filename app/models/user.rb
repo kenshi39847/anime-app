@@ -6,6 +6,7 @@ class User < ApplicationRecord
   
   has_many :animes
   has_many :comments
-  
+  has_many :netabares
+
   validates :name, presence: true
 end

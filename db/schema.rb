@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_16_121648) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_18_121117) do
+
   create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -65,6 +66,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_16_121648) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "netabares", charset: "utf8", force: :cascade do |t|
+    t.integer "count", default: 0, null: false
+    t.bigint "user_id", null: false
+    t.bigint "anime_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["anime_id"], name: "index_netabares_on_anime_id"
+    t.index ["user_id"], name: "index_netabares_on_user_id"
+  end
+
   create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
@@ -83,4 +94,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_16_121648) do
   add_foreign_key "comments", "animes"
   add_foreign_key "comments", "comments", column: "parent_id"
   add_foreign_key "comments", "users"
+  add_foreign_key "netabares", "animes"
+  add_foreign_key "netabares", "users"
+
 end
