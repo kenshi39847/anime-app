@@ -1,0 +1,2 @@
+module NetabaresHelper
+end

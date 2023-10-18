@@ -37,11 +37,19 @@
               <div class="show-anime-netabare">
                 <div class="show-anime-netabare-counter">
                   <div class="show-anime-netabare-count-number">3</div>
-                  <div class="show-anime-netabare-count">ネタバレカウント</div>
+                  <div class="show-anime-netabare-count">
+                    ネタバレカウント: <span class="show-anime-netabare-count-number"><%= @anime.netabare_count %></span>
+                  </div>
                 </div>
-                <form class="show-anime-netabare-button">
-                  <input type="submit" value="ネタバレボタン" class="show-anime-netabare-button-form">
-                </form>
+                <div class="show-anime-netabare-button">
+                 <% if user_signed_in? %>
+                 <% if user_signed_in? %>
+                 <%= link_to 'ネタバレボタン+', anime_netabares_path(@anime, operation: 'increment'), method: :post, class: "show-anime-netabare-button-form" %>
+                 <%= link_to 'ネタバレボタン-', anime_netabares_path(@anime, operation: 'decrement'), method: :post, class: "show-anime-netabare-button-form" %>
+                 <% else %>
+                 <%= link_to 'ネタバレボタン', new_user_registration_path, class: "show-anime-netabare-button-form" %>
+                 <% end %>
+                </div>
               </div>
             </div>
           </div>
