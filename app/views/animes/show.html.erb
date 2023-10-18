@@ -81,14 +81,15 @@
           <div class="comments-questions">コメントや質問</div>
         </div>
         <div class="accordion">
-
+          <% @comments.each do |comment| %>
+            <% if comment.parent_id.present? || comment.id.blank? %>
+              <% next %>
+              <% end %>
           <dl class="accordion-box">
-            <% @comments.each do |comment| %>
+            
               <dt id="question"><span></span>
               
-                <% if comment.parent_id.present? || comment.id.blank? %>
-                  <% next %>
-                <% end %>
+                
                 
                 <div id="comment_area">
                   <p> <%= comment.user.name %> さん : <%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></p>
@@ -106,7 +107,7 @@
               <dd id="answer">
 
                 <% if user_signed_in? %>
-                  <%= form_with(model:[@anime, @comment_reply]) do |form| %>
+                  <%= form_with model:[@anime, @comment_reply] , data: {turbo: false} do |form| %>
                     <div class="row">
                       <div class="form-group col-md-6">
                         <%= form.text_area :content, rows: 2, placeholder: "返信を入力してください" %>
@@ -123,10 +124,10 @@
                 <% end %>
               
               </dd><!-- /.answer -->
-            <% end %>
+            
             
           </dl><!-- /.accordion-box -->
-          
+          <% end %>
 
           <% if user_signed_in? %>
             <%= form_with(model:[@anime,@comment]) do |form| %>

@@ -50,7 +50,7 @@
             <div class="content-header">
               <div class="content-anime">
                 <div class="content-title">アニメタイトル</div>
-                <%= link_to anime.title, anime_path(anime), class: "content-anime-title" %>
+                <%= link_to anime.title, anime_path(anime), data: {turbo: false},class: "content-anime-title" %>
               </div>
               <div class="content-netabare-count">
                 <div class="netabare">5</div>
