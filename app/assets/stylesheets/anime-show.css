@@ -1,5 +1,86 @@
-.show-anime-contents {
-  width: 400px;
-  height: 500px;
+.show-posts {
+  width: 100%;
+  height: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(0, 255, 234);
+}
+
+.show-post {
+  width: 500px;
+  background-color: aliceblue;
+}
+
+.show-anime-content {
+  width: 500px;
+  height: 700px;
   border: 2px solid;
 }
+
+.show-anime-content-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px 0 20px;
+}
+
+.show-anime-header-right {
+  padding: 10px 0 0 10px;
+}
+
+.show-anime-title-user {
+  padding: 0 0 20px 0;
+}
+
+.show-anime-netabare {
+  display: flex;
+  justify-content: space-between;
+}
+
+.show-anime-netabare-counter {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 1px solid;
+  background-color: #5ec9fb;
+}
+
+.show-anime-netabare-count-number {
+  font-size: 50px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.show-anime-netabare-count {
+  font-size: 10px;
+  text-align: center;
+}
+
+.show-anime-content-footer {
+  font-size: 18px;
+  overflow-wrap: anywhere;
+  padding: 10px 0 0 0;
+}
+
+.show-anime-detail-table {
+  width: 500px;
+  padding: 20px 20px 0 20px;
+}
+
+.show-anime-detail-anime {
+  width: 20%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 20px;
+  text-align: center;
+}
+
+.show-anime-detail-value {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #dedede;
+  font-size: 20px;
+}
+

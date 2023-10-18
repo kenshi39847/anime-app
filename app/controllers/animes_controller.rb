@@ -2,7 +2,7 @@ class AnimesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   before_action :redirect_to_index, only: [:edit, :update, :destroy]
   def index
-    @animes = Anime.all
+    @animes = Anime.all.order(created_at: :desc)
     @q = Anime.ransack(params[:q])
     animes = @q.result(distinct: true)
   end
@@ -42,6 +42,9 @@ class AnimesController < ApplicationController
 
   def show
     @anime = Anime.find(params[:id])
+    @comments = @anime.comments
+    @comment = Comment.new
+    @comment_reply = @anime.comments.new
   end
 
   def search
