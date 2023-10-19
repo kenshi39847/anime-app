@@ -36,18 +36,17 @@
               </div>
               <div class="show-anime-netabare">
                 <div class="show-anime-netabare-counter">
-                  <div class="show-anime-netabare-count-number">3</div>
+                  <div class="show-anime-netabare-count-number"> 10 </div>
                   <div class="show-anime-netabare-count">
-                    ネタバレカウント: <span class="show-anime-netabare-count-number"><%= @anime.netabare_count %></span>
+                    ネタバレカウント
                   </div>
                 </div>
                 <div class="show-anime-netabare-button">
                  <% if user_signed_in? %>
-                 <% if user_signed_in? %>
-                 <%= link_to 'ネタバレボタン+', anime_netabares_path(@anime, operation: 'increment'), method: :post, class: "show-anime-netabare-button-form" %>
-                 <%= link_to 'ネタバレボタン-', anime_netabares_path(@anime, operation: 'decrement'), method: :post, class: "show-anime-netabare-button-form" %>
+                   <%= link_to 'ネタバレボタン+', root_path, class: "show-anime-netabare-button-form" %>
+                   <%= link_to 'ネタバレボタン-', root_path, class: "show-anime-netabare-button-form" %>
                  <% else %>
-                 <%= link_to 'ネタバレボタン', new_user_registration_path, class: "show-anime-netabare-button-form" %>
+                   <%= link_to 'ネタバレボタン', new_user_registration_path, class: "show-anime-netabare-button-form" %>
                  <% end %>
                 </div>
               </div>
@@ -82,7 +81,7 @@
         </div>
       </div>
     </div>
-
+  
     <div class="comments-replies">
       <div class="comments-container">
         <div class="container">
@@ -92,13 +91,9 @@
           <% @comments.each do |comment| %>
             <% if comment.parent_id.present? || comment.id.blank? %>
               <% next %>
-              <% end %>
-          <dl class="accordion-box">
-            
+            <% end %>
+            <dl class="accordion-box">
               <dt id="question"><span></span>
-              
-                
-                
                 <div id="comment_area">
                   <p> <%= comment.user.name %> さん : <%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></p>
                   <p> <%= comment.content %></p>
@@ -109,11 +104,8 @@
                     <p> <%= reply.content %></p>
                   <% end %>
                 </div>
-               
               </dt><!-- /.question -->
-            
               <dd id="answer">
-
                 <% if user_signed_in? %>
                   <%= form_with model:[@anime, @comment_reply] , data: {turbo: false} do |form| %>
                     <div class="row">
@@ -130,26 +122,22 @@
                 <% else %>
                   <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
                 <% end %>
-              
               </dd><!-- /.answer -->
-            
-            
-          </dl><!-- /.accordion-box -->
-          <% end %>
-
-          <% if user_signed_in? %>
-            <%= form_with(model:[@anime,@comment]) do |form| %>
-              <p><label>コメントや質問を記入</label></p>
-              <%= form.text_area :content, class: "form-control input-form", rows: 5, placeholder: "コメントや質問を入力してください" %>
-              <%= form.hidden_field :anime_id, value: @anime.id %>
-              <div class="comment-actions">
-                <%= form.submit '送信する' %>
-              </div>
-            <% end %>
-          <% else %>
-            <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+            </dl><!-- /.accordion-box -->
           <% end %>
         </div>
+        <% if user_signed_in? %>
+          <%= form_with(model:[@anime,@comment]) do |form| %>
+            <p><label>コメントや質問を記入</label></p>
+            <%= form.text_area :content, class: "form-control input-form", rows: 5, placeholder: "コメントや質問を入力してください" %>
+            <%= form.hidden_field :anime_id, value: @anime.id %>
+            <div class="comment-actions">
+              <%= form.submit '送信する' %>
+            </div>
+          <% end %>
+        <% else %>
+          <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+        <% end %>
       </div>
     </div>
   </div>
