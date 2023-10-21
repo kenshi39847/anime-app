@@ -45,7 +45,8 @@ class AnimesController < ApplicationController
     @comments = @anime.comments
     @comment = Comment.new
     @comment_reply = @anime.comments.new
-    @netabare = @anime.netabare || @anime.build_netabare 
+    @netabares = @anime.netabare
+    @netabare = Netabare.new
   end
 
   def search

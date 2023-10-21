@@ -8,8 +8,7 @@ Rails.application.routes.draw do
     
     resources :netabares do
       member do
-        post 'increment'
-        post 'decrement'
+        post 'change_count'
       end
     end
     

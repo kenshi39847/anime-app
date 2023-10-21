@@ -36,13 +36,14 @@
               </div>
               <div class="show-anime-netabare">
                 <div class="show-anime-netabare-counter">
-                  <div class="show-anime-netabare-count-number" id="netabare-count"><%= @anime.netabare.count %></div>
+                  <div class="show-anime-netabare-count-number" id="netabare-count"><%= 0 %></div>
                   <div class="show-anime-netabare-count">ネタバレカウント</div>
                 </div>
                 <% if user_signed_in? %>
-                  <div class="show-anime-netabare-button-form">
-                    <%= button_to "増加+", increment_anime_netabare_path(@anime) %>
-                    <%= button_to "減少-", decrement_anime_netabare_path(@anime) %>
+                  <div class="show-anime-netabare-button-form" id="netabare-buttons">
+                    <%= form_tag(change_count_anime_netabare_path(@anime), method: :post, id: "increment-decrement-form") do %>
+                      <%= submit_tag "増加+/減少-", id: "increment-decrement-button" %>
+                   <% end %>
                   </div>
                 <% else %>
                   <div class="show-anime-netabare-button-form">
