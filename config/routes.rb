@@ -5,6 +5,14 @@ Rails.application.routes.draw do
       get 'search'
     end
     resources :comments, only: :create
+    
+    resources :netabares do
+      member do
+        post 'increment'
+        post 'decrement'
+      end
+    end
+    
   end
   resources :users, only: :show
   root to: "animes#index"

@@ -1,0 +1,86 @@
+<div class="show-post-comment">
+    <div class="show-posts">
+      <div class="show-post">
+        <div class="edited-edit-delete">
+          <div class="edit-end">
+            <% if @anime.edited %>
+              <div class="edit-end-view"><%= "編集済み" %></div>
+            <% end %>
+          </div>
+          <div class="edit-delete-button">
+            <% if current_user == @anime.user %>
+              <div class="content-edit">
+                <%= link_to '編集', edit_anime_path(@anime), class: "edit-button" %>
+              </div>
+              <div class="content-delete">
+                <%= link_to '削除', anime_path(@anime), data: { turbo_method: :delete }, class: "delete-button" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="show-anime-content">
+          <div class="show-anime-content-header">
+            <div class="show-anime-header-left">
+              <%= image_tag @anime.image.variant(resize: '200x200'), class: 'show-anime-image' if @anime.image.attached? %>
+            </div>
+            <div class="show-anime-header-right">
+              <div class="show-anime-title-user">
+                <div class="show-anime-title">アニメタイトル</div>
+                <div class="show-anime-title-name">
+                <%= @anime.title %>
+                </div>
+                <div class="show-anime-user-name">
+                <%= @anime.user.name %>
+                </div>
+              </div>
+              <div class="show-anime-netabare">
+                <div class="show-anime-netabare-counter">
+                  <div class="show-anime-netabare-count-number"> <%= @anime.netabare.count %> </div>
+                  <div class="show-anime-netabare-count">ネタバレカウント</div>
+                </div>
+                <div class="show-anime-netabare-button">
+                  <% if user_signed_in? %>
+                    <div class="show-anime-netabare-button-form">
+                      <%= link_to 'ネタバレボタン+', increment_anime_netabare_path(@anime), method: :post %>
+                      <%= link_to 'ネタバレボタン-', decrement_anime_netabare_path(@anime), method: :post %>
+                    </div>
+                  <% else %>
+                    <div class="show-anime-netabare-button-form">
+                      <%= link_to 'ネタバレボタン', new_user_session_path, class: 'login-link' %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="show-anime-content-footer">
+            <table class="show-anime-detail-table">
+              <tbody>
+                <tr>
+                  <th class="show-anime-detail-anime">あらすじ</th>
+                  <td class="show-anime-detail-value"><%= @anime.synopsis %></td>
+                </tr>
+                <tr>
+                  <th class="show-anime-detail-anime">ジャンル</th>
+                  <td class="show-anime-detail-value"><%= @anime.genre.name %></td>
+                </tr>
+                <tr>
+                  <th class="show-anime-detail-anime">良いところ</th>
+                  <td class="show-anime-detail-value"><%= @anime.good_point.name %></td>
+                </tr>
+                <tr>
+                  <th class="show-anime-detail-anime">どんな人におすすめか</th>
+                  <td class="show-anime-detail-value"><%= @anime.recommendation.name %></td>
+                </tr>
+                <tr>
+                  <th class="show-anime-detail-anime">アニメを観た感想</th>
+                  <td class="show-anime-detail-value"><%= @anime.text %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  

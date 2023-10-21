@@ -36,22 +36,23 @@
               </div>
               <div class="show-anime-netabare">
                 <div class="show-anime-netabare-counter">
-                  <div class="show-anime-netabare-count-number"> 10 </div>
-                  <div class="show-anime-netabare-count">
-                    ネタバレカウント
+                  <div class="show-anime-netabare-count-number" id="netabare-count"><%= @anime.netabare.count %></div>
+                  <div class="show-anime-netabare-count">ネタバレカウント</div>
+                </div>
+                <% if user_signed_in? %>
+                  <div class="show-anime-netabare-button-form">
+                    <%= button_to "増加+", increment_anime_netabare_path(@anime) %>
+                    <%= button_to "減少-", decrement_anime_netabare_path(@anime) %>
                   </div>
-                </div>
-                <div class="show-anime-netabare-button">
-                 <% if user_signed_in? %>
-                   <%= link_to 'ネタバレボタン+', root_path, class: "show-anime-netabare-button-form" %>
-                   <%= link_to 'ネタバレボタン-', root_path, class: "show-anime-netabare-button-form" %>
-                 <% else %>
-                   <%= link_to 'ネタバレボタン', new_user_registration_path, class: "show-anime-netabare-button-form" %>
-                 <% end %>
-                </div>
+                <% else %>
+                  <div class="show-anime-netabare-button-form">
+                    <%= button_to "ネタバレボタン", new_user_session_path %>
+                  </div>
+                <% end %>
               </div>
             </div>
           </div>
+          
           <div class="show-anime-content-footer">
             <table class="show-anime-detail-table">
               <tbody>
