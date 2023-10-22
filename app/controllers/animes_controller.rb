@@ -45,7 +45,7 @@ class AnimesController < ApplicationController
     @comments = @anime.comments
     @comment = Comment.new
     @comment_reply = @anime.comments.new
-    @netabares = @anime.netabare
+    @netabares = Netabare.where(anime_id: @anime.id)
     @netabare = Netabare.new
   end
 

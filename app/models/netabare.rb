@@ -1,4 +1,4 @@
 class Netabare < ApplicationRecord
   belongs_to :user
-  has_one :anime
+  belongs_to :anime
 end
