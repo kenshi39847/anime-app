@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to anime_path(@comment.anime.id)
     else
-      redirect_to root_path
+      redirect_to anime_path(@anime)
     end
   end
 
