@@ -4,6 +4,7 @@ class AnimesController < ApplicationController
   def index
     @animes = Anime.all.order(created_at: :desc)
     @q = Anime.ransack(params[:q])
+    @q.combinator = 'or'
     animes = @q.result(distinct: true)
     @netabare = {}
     @animes.each do |anime|
@@ -55,7 +56,8 @@ class AnimesController < ApplicationController
 
   def search
     @q = Anime.ransack(params[:q])
-    @animes = @q.result(distinct: true)
+    @q.combinator = 'or'
+    @animes = @q.result(distinct: true).order(created_at: :desc)
   end
 
   private
