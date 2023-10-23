@@ -101,12 +101,12 @@
             <dl class="accordion-box">
               <dt id="question"><span></span>
                 <div id="comment_area">
-                  <p> <%= comment.user.name %> さん : <%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+                  <p> <%= comment.user.name %> さん : <%= comment.created_at.strftime("%Y/%m/%d %H:%M") %></p>
                   <p> <%= comment.content %></p>
                 </div>
                 <div id="reply_area">
                   <% comment.replies.order(:created_at).each do |reply| %>
-                    <p> <%= reply.user.name %> さん : <%= reply.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+                    <p> <%= reply.user.name %> さん : <%= reply.created_at.strftime("%Y/%m/%d %H:%M") %></p>
                     <p> <%= reply.content %></p>
                   <% end %>
                 </div>
