@@ -27,13 +27,14 @@ class AnimesController < ApplicationController
 
   def edit
     @anime = Anime.find(params[:id])
+    session[:previous_url] = request.referer
   end
 
   def update
     @anime = Anime.find(params[:id])
      if @anime.update(anime_params)
       @anime.update(edited: true)
-      redirect_to root_path
+      redirect_to session[:previous_url]
      else
       render :edit, status: :unprocessable_entity
      end
