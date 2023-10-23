@@ -5,6 +5,10 @@ class AnimesController < ApplicationController
     @animes = Anime.all.order(created_at: :desc)
     @q = Anime.ransack(params[:q])
     animes = @q.result(distinct: true)
+    @netabare = {}
+    @animes.each do |anime|
+      @netabare[anime.id] = Netabare.where(anime_id: anime.id).count
+    end
   end
 
   def new
