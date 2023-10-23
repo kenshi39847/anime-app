@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @animes = @user.animes
+    @animes = @user.animes.order(created_at: :desc)
     @netabare = {}
     @animes.each do |anime|
       @netabare[anime.id] = Netabare.where(anime_id: anime.id).count
