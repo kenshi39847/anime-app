@@ -1,7 +1,7 @@
 class Anime < ApplicationRecord
   belongs_to :user
   has_many :comments
-  has_one :netabare
+  has_one :netabare, dependent: :destroy
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
