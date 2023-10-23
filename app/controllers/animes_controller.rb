@@ -59,6 +59,10 @@ class AnimesController < ApplicationController
     @q = Anime.ransack(params[:q])
     @q.combinator = 'or'
     @animes = @q.result(distinct: true).order(created_at: :desc)
+    @netabare = {}
+    @animes.each do |anime|
+      @netabare[anime.id] = Netabare.where(anime_id: anime.id).count
+    end
   end
 
   private
