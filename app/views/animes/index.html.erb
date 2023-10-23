@@ -53,7 +53,7 @@
                 <%= link_to anime.title, anime_path(anime), data: {turbo: false},class: "content-anime-title" %>
               </div>
               <div class="content-netabare-count">
-                <div class="netabare">5</div>
+                <div class="netabare"><%= @netabare[anime.id] %></div>
                 <div class="count">ネタバレカウント</div>
               </div>
             </div>

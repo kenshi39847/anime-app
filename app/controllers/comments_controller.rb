@@ -1,10 +1,8 @@
 class CommentsController < ApplicationController
   def create
     @anime = Anime.find(params[:anime_id])
-
     @comment = @anime.comments.new(comment_params)
     @comment.user_id = current_user.id
-
     @comment_reply = @anime.comments.new
     if @comment.save
       redirect_to anime_path(@comment.anime.id)
