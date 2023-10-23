@@ -39,15 +39,19 @@
                   <div class="show-anime-netabare-count-number" id="netabare-count"><%= @netabares.where(anime_id: @anime.id).count %></div>
                   <div class="show-anime-netabare-count">ネタバレカウント</div>
                 </div>
-                <% if user_signed_in? %>
+                <% if user_signed_in? && current_user != @anime.user %>
                   <div class="show-anime-netabare-button-form" id="netabare-buttons">
-                    <%= form_tag(change_count_anime_netabare_path(@anime), method: :post, id: "increment-decrement-form") do %>
-                      <%= submit_tag "ネタバレボタン", id: "increment-decrement-button" %>
+                    <%= form_tag(change_count_anime_netabare_path(@anime), method: :post, id: "change_count-form") do %>
+                      <%= submit_tag "ネタバレ！", id: "change_count-button" %>
                    <% end %>
+                  </div>
+                <% elsif current_user == @anime.user%>
+                  <div class="show-anime-netabare-button-form">
+                    自分の投稿にはネタバレ！できません
                   </div>
                 <% else %>
                   <div class="show-anime-netabare-button-form">
-                    <%= button_to "ネタバレボタン", new_user_session_path %>
+                    <%= button_to "ネタバレ！にはログインが必要です", new_user_session_path %>
                   </div>
                 <% end %>
               </div>
