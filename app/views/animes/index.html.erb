@@ -45,12 +45,15 @@
               <div class="edit-end-view"><%= "編集済み" %></div>
             <% end %>
           </div>
-          
+
           <div class="anime-content">
+          <a href="<%= anime_path(anime) %>" data-turbo="false" >
             <div class="content-header">
               <div class="content-anime">
                 <div class="content-title">アニメタイトル</div>
-                <%= link_to anime.title, anime_path(anime), data: {turbo: false},class: "content-anime-title" %>
+                  <div class="content-anime-title">
+                  <%= anime.title %>
+                  </div>
               </div>
               <div class="content-netabare-count">
                 <div class="netabare"><%= @netabare[anime.id] %></div>
@@ -80,7 +83,7 @@
               </tbody>
             </table>
             </div>
-
+          </a>
           </div>
           <div class="content-user-name">
             投稿者：<%= link_to anime.user.name, user_path(anime.user) %>

@@ -40,10 +40,13 @@
             <%= "編集済み" if anime.edited %>
           </div>
           <div class="anime-content">
+          <a href="<%= anime_path(anime) %>" data-turbo="false" >
             <div class="content-header">
               <div class="content-anime-title">
                 <div class="content-anime">アニメタイトル</div>
-                <%= link_to anime.title, anime_path(anime) %>
+                <div class="content-anime-title">
+                  <%= anime.title %>
+                </div>
               </div>
               <div class="content-netabare-count">
                 <div class="netabare"><%= @netabare[anime.id] %></div>
@@ -61,6 +64,7 @@
               <div class="content-recommendation">どんな人におすすめか:</div>
               <%= anime.recommendation.name %>
             </div>
+          </a>
           </div>
           
           <div class="user-name">
