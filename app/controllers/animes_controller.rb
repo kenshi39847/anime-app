@@ -4,6 +4,7 @@ class AnimesController < ApplicationController
   def index
     @animes = Anime.all.order(created_at: :desc)
     @q = Anime.ransack(params[:q])
+    @q.combinator = 'or'
     animes = @q.result(distinct: true)
     @netabare = {}
     @animes.each do |anime|
@@ -26,13 +27,14 @@ class AnimesController < ApplicationController
 
   def edit
     @anime = Anime.find(params[:id])
+    session[:previous_url] = request.referer
   end
 
   def update
     @anime = Anime.find(params[:id])
      if @anime.update(anime_params)
       @anime.update(edited: true)
-      redirect_to root_path
+      redirect_to session[:previous_url]
      else
       render :edit, status: :unprocessable_entity
      end
@@ -41,7 +43,7 @@ class AnimesController < ApplicationController
   def destroy
     anime = Anime.find(params[:id])
     anime.destroy
-    redirect_to root_path
+    redirect_to user_path(anime.user)
   end
 
   def show
@@ -55,7 +57,12 @@ class AnimesController < ApplicationController
 
   def search
     @q = Anime.ransack(params[:q])
-    @animes = @q.result(distinct: true)
+    @q.combinator = 'or'
+    @animes = @q.result(distinct: true).order(created_at: :desc)
+    @netabare = {}
+    @animes.each do |anime|
+      @netabare[anime.id] = Netabare.where(anime_id: anime.id).count
+    end
   end
 
   private
