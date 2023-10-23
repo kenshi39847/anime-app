@@ -43,7 +43,7 @@ class AnimesController < ApplicationController
   def destroy
     anime = Anime.find(params[:id])
     anime.destroy
-    redirect_to root_path
+    redirect_to user_path(anime.user)
   end
 
   def show
