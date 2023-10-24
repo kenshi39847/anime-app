@@ -1,75 +1,48 @@
-/* --------------------ヘッダー-------------------- */
-.header {
+/* --------------------サービス内容-------------------- */
+.service-main {
+  width: 100%;
+}
+
+.service-items {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  height: 100px;
+  padding: 100px 150px 100px;
+}
+
+.service-item {
+  width: 350px;
+  height: 420px;
+}
+
+.service-image {
+  width: 350px;
+  height: 275px;
+}
+
+.service-image img {
   width: 100%;
-  padding: 0 100px 0 30px;
-  background-color: aquamarine;
+  height: 100%;
+  border-radius: 5px 5px 0 0;
+  object-fit: cover;
 }
 
-.header a {
-  text-decoration: none;
-  color: #000000;
+.service-text {
+  width: 100%;
+  height: 120px;
+  padding: 20px;
+  border-radius: 0 0 5px 5px;
+  background-color: #DADADA;
 }
 
-.app-name {
-  font-size: 30px;
+.service-text__main {
+  font-size: 18px;
   font-weight: 600;
 }
 
-.header-lists {
-  display: flex;
-  list-style: none;
-}
-
-.log-in,
-.current-user-name,
-.sign-up,
-.log-out {
-  height: 30px;
-  width: 100px;
-  line-height: 30px;
-  margin-left: 50px;
-  font-size: 15px;
-  font-weight: 600;
-  text-align: center;
-  text-decoration: none;
-  color: #000000;
-  background-color: #5ec9fb;
-}
-
-/* 検索欄 */
-.anime-search {
-  height: 100px;
-  width: 100%;
-  line-height: 100px;
-  font-size: 30px;
-  font-weight: 600;
-  text-align: center;
-  background-color: #00c3ff;
-}
-
-.search-forms {
-  width: 100%;
-  height: 150px;
-  padding: 50px 100px 0 30px;
-  background-color: #ff00f7;
-}
-
-.form {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.search-anime-title{
-  width: 400px;
-}
-
-.search {
-  width: 75px;
+.service-text__sub {
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 17px
 }
 
 /* --------------------アニメ投稿一覧-------------------- */
@@ -80,21 +53,23 @@
 
 .charts {
   height: 100px;
+  width: 100%;
+  padding: 0 100px 0 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 100px 0 30px;
-  background-color: antiquewhite;
+  background-color: #00ffa2;
 }
 
 .anime-chart {
+  line-height: 100px;
   font-size: 30px;
   font-weight: 600;
 }
 
-.new-post {
-  height: 50px;
+.new-post-submit {
   width: 150px;
+  height: 50px;
   line-height: 50px;
   font-size: 20px;
   font-weight: 600;
@@ -105,28 +80,26 @@
   background-color: #ffffff;
 }
 
-.new-post a {
-  text-decoration: none;
-  color: #000000;
+.new-post-submit:hover {
+  opacity: 0.9;
 }
 
 .posts {
-  display: flex;
-  justify-content: space-between;
-  padding: 100px 100px 50px 30px;
-  background-color: #d0ff00;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 50px 30px 50px 30px;
 }
 
 .post {
   width: 400px;
-  background-color: #ffffff;
+  margin: 30px 0;
 }
 
 .anime-content {
   height: 500px;
   width: 400px;
   border: 2px solid #000000;
-  background-color: #ffffff;
   position: relative;
 }
 
@@ -141,8 +114,7 @@
 }
 
 .anime-content a:hover {
-  opacity: 0.1;
-  background-color: #000000;
+  opacity: 0.3;
 }
 
 .content-header {
@@ -168,7 +140,7 @@ padding: 20px 20px 0 20px;
   flex-direction: column;
   justify-content: space-around;
   border: 1px solid;
-  background-color: #5ec9fb;
+  background-color: #00ffa2;
 }
 
 .netabare {
@@ -216,5 +188,15 @@ padding: 20px 20px 0 20px;
 }
 
 .content-user-name {
+  padding: 5px 0 0 0;
   text-align: right;
+}
+
+.user-name {
+  text-decoration: none;
+  color: #000000;
+}
+
+.user-name:hover {
+  opacity: 0.3;
 }

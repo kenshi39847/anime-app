@@ -1,0 +1,47 @@
+/* --------------------ヘッダー-------------------- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  padding: 0 100px 0 30px;
+  background-color: #00ffa2;
+}
+
+.header a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.app-name {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.header-lists {
+  display: flex;
+  list-style: none;
+}
+
+.log-in,
+.current-user-name,
+.sign-up,
+.log-out {
+  height: 30px;
+  width: 100px;
+  line-height: 30px;
+  margin-left: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  background-color: #ffffff;
+}
+
+.log-in:hover,
+.current-user-name:hover,
+.sign-up:hover,
+.log-out:hover {
+  opacity: 0.9;
+}
