@@ -1,6 +1,9 @@
     <!-- ログイン -->
     <div class="contents-row">
       <div class="container-session">
+        <div class="session">
+          すでに会員登録している方
+        </div>
         <%= form_with model: @user, url: user_session_path, id: 'new_user', class: 'session-new_user', local: true do |f| %>
           <div class="field">
             <%= f.label :メールアドレス %><br />
