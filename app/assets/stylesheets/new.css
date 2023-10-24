@@ -1,17 +1,17 @@
+/* --------------------アニメ新規投稿-------------------- */
 .new-anime {
-  height: 1500px;
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: aqua;
 }
 
 .new-anime-posts {
-  height: 1250px;
+  height: 1100px;
   width: 800px;
   border: 1px solid;
-  background-color: bisque;
-  margin: 50px 0 0 0;
+  background-color: #00ffa2;
+  margin: 100px 0 100px 0;
 }
 
 .new-anime-post {
@@ -39,6 +39,11 @@
   height: 150px;
 }
 
+.new-anime-genre,
+.new-anime-good_point,
+.new-anime-recommendation {
+  width: 150px;
+}
 
 .new-anime-submit {
   display: block;

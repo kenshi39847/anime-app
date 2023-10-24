@@ -1,0 +1,39 @@
+/* --------------------検索欄-------------------- */
+.search-forms {
+  width: 100%;
+  padding: 20px 100px 0 30px;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-anime-title {
+  width: 500px;
+}
+
+.search-anime-ids {
+  width: 150px;
+}
+
+.search-anime-submit {
+  width: 75px;
+}
+
+/* --------------------検索結果ページ-------------------- */
+.search-charts {
+  height: 100px;
+  width: 100%;
+  padding: 0 100px 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-anime-chart {
+  line-height: 100px;
+  font-size: 30px;
+  font-weight: 600;
+}

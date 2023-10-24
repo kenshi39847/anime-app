@@ -1,18 +1,17 @@
 /* --------------------新規登録-------------------- */
-.container-registrtion {
+.contents-row {
   height: 600px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(0, 255, 140);
 }
 
-.registration-new_user {
-  height: 400px;
+.container-registrtion {
+  height: 450px;
   width: 400px;
   border: 1px solid;
-  background-color: azure;
+  background-color: #00ffa2;
 }
 
 .field {
@@ -27,25 +26,30 @@
 }
 
 .submit-field {
-  width: 100px;
+  width: 125px;
   display: block;
   margin: 20px auto 0;
 }
 
 /* --------------------ログイン-------------------- */
 
-.container-session {
+.contents-row {
   height: 600px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: blanchedalmond;
 }
 
-.session-new_user {
-  height: 250px;
+.container-session {
+  height: 300px;
   width: 400px;
   border: 1px solid;
-  background-color: rgb(243, 189, 119);
+  background-color: #00ffa2;
+}
+
+.session {
+  text-align: center;
+  padding: 20px 0 20px 0;
+  font-weight: 550;
 }

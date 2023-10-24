@@ -1,37 +1,40 @@
+<!-- 詳細ページ -->
   <div class="show-post-comment">
     <div class="show-posts">
       <div class="show-post">
-        <div class="edited-edit-delete">
-          <div class="edit-end">
+        <div class="edited-end-edit-delete">
+          <div class="edited-end">
             <% if @anime.edited %>
-              <div class="edit-end-view"><%= "編集済み" %></div>
+              <div class="edited-end-view">
+                <%= "編集済み" %>
+              </div>
             <% end %>
           </div>
-          <div class="edit-delete-button">
-            <% if current_user == @anime.user %>
+          <% if current_user == @anime.user %>
+            <div class="edit-delete-button">
               <div class="content-edit">
                 <%= link_to '編集', edit_anime_path(@anime), class: "edit-button" %>
               </div>
               <div class="content-delete">
                 <%= link_to '削除', anime_path(@anime), data: { turbo_method: :delete }, class: "delete-button" %>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         </div>
 
         <div class="show-anime-content">
           <div class="show-anime-content-header">
             <div class="show-anime-header-left">
-              <%= image_tag @anime.image.variant(resize: '200x200'), class: 'show-anime-image' if @anime.image.attached? %>
+              <%= image_tag @anime.image.variant(resize: '300x300'), class: 'show-anime-image' if @anime.image.attached? %>
             </div>
             <div class="show-anime-header-right">
               <div class="show-anime-title-user">
                 <div class="show-anime-title">アニメタイトル</div>
                 <div class="show-anime-title-name">
-                <%= @anime.title %>
+                  <%= @anime.title %>
                 </div>
                 <div class="show-anime-user-name">
-                投稿者：<%= @anime.user.name %>
+                  投稿者：<%= @anime.user.name %>
                 </div>
               </div>
               <div class="show-anime-netabare">
@@ -39,21 +42,23 @@
                   <div class="show-anime-netabare-count-number" id="netabare-count"><%= @netabares.where(anime_id: @anime.id).count %></div>
                   <div class="show-anime-netabare-count">ネタバレカウント</div>
                 </div>
-                <% if user_signed_in? && current_user != @anime.user %>
-                  <div class="show-anime-netabare-button-form" id="netabare-buttons">
-                    <%= form_tag(change_count_anime_netabare_path(@anime), method: :post, id: "change_count-form") do %>
-                      <%= submit_tag "ネタバレ！", id: "change_count-button" %>
-                   <% end %>
-                  </div>
-                <% elsif current_user == @anime.user%>
-                  <div class="show-anime-netabare-button-form">
-                    自分の投稿にはネタバレ！できません
-                  </div>
-                <% else %>
-                  <div class="show-anime-netabare-button-form">
-                    <%= button_to "ネタバレ！にはログインが必要です", new_user_session_path %>
-                  </div>
-                <% end %>
+                <div class="show-anime-netabare-button">
+                  <% if user_signed_in? && current_user != @anime.user %>
+                    <div class="show-anime-netabare-button-form" id="netabare-buttons">
+                      <%= form_tag(change_count_anime_netabare_path(@anime), method: :post, id: "change_count-form") do %>
+                        <%= submit_tag "ネタバレ！", id: "change_count-button" %>
+                      <% end %>
+                    </div>
+                  <% elsif current_user == @anime.user%>
+                    <div class="show-anime-netabare-not-button-form">
+                      自分の投稿にはネタバレ！できません
+                    </div>
+                  <% else %>
+                    <div class="show-anime-netabare-button-form">
+                      <%= button_to "ネタバレ！にはログインが必要です", new_user_session_path %>
+                    </div>
+                  <% end %>
+                </div>
               </div>
             </div>
           </div>
@@ -87,7 +92,8 @@
         </div>
       </div>
     </div>
-  
+
+<!-- コメント一覧 -->
     <div class="comments-replies">
       <div class="comments-container">
         <div class="container">
@@ -115,8 +121,8 @@
                 <% if user_signed_in? %>
                   <%= form_with model:[@anime, @comment_reply] , data: {turbo: false} do |form| %>
                     <div class="row">
-                      <div class="form-group col-md-6">
-                        <%= form.text_area :content, rows: 2, placeholder: "返信を入力してください" %>
+                      <div class="reply-form col-md-6">
+                        <%= form.text_area :content, class: "reply-form", rows: 3, placeholder: "返信を入力してください" %>
                       </div>
                     </div>
                     <%= form.hidden_field :anime_id, value: @anime.id %>
@@ -132,18 +138,24 @@
             </dl><!-- /.accordion-box -->
           <% end %>
         </div>
-        <% if user_signed_in? %>
-          <%= form_with(model:[@anime,@comment]) do |form| %>
-            <p><label>コメントや質問を記入</label></p>
-            <%= form.text_area :content, class: "form-control input-form", rows: 5, placeholder: "コメントや質問を入力してください" %>
-            <%= form.hidden_field :anime_id, value: @anime.id %>
-            <div class="comment-actions">
-              <%= form.submit '送信する' %>
+        <div class="comment-forms-area">
+          <div class="comment-form-area">
+            <div class="comment-question">
+              コメントや質問を記入
             </div>
-          <% end %>
-        <% else %>
-          <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
-        <% end %>
+            <% if user_signed_in? %>
+              <%= form_with(model:[@anime,@comment]) do |form| %>
+                <%= form.text_area :content, class: "comment-form", rows: 5, placeholder: "コメントや質問を入力してください" %>
+                <%= form.hidden_field :anime_id, value: @anime.id %>
+                <div class="comment-actions">
+                  <%= form.submit '送信する' %>
+                </div>
+              <% end %>
+            <% else %>
+              <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
