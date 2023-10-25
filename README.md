@@ -1,67 +1,58 @@
-# README
-# DB設計
-## usersテーブル
-| Column             | Type    | Option                    |
-|--------------------|---------|---------------------------|
-| id                 | integer | null: false               |
-| name               | string  | null: false               |
-| email              | string  | null: false, unique: true |
-| encrypted_password | string  | null: false               |
+# アプリケーション名
 
 
-### Association
-- has_many :animes
-- has_many :comments
-- has_many :netabares
+# アプリケーション概要
+アニメに関するネタバレを避けつつ、アニメの情報を得ることができる。
 
 
-
-## animesテーブル
-| Column            | Type       | Option                         |
-|-------------------|------------|--------------------------------|
-| id                | integer    | null: false                    |
-| title             | string     | null: false                    |
-| synopsis          | text       | null: false                    |
-| genre_id          | integer    | null: false                    |
-| good_point_id     | integer    | null: false                    |
-| recommendation_id | integer    | null: false                    |
-| text              | text       | null: false                    |
-| user              | references | null: false, foreign_key: true |
+# URL
 
 
-### Association
-- belongs_to :user
-- has_many :comments
-- has_one :netabare
+# テスト用アカウント
 
 
-
-## commentsテーブル
-| Column  | Type       | Option                         |
-|---------|------------|--------------------------------|
-| id      | integer    | null: false                    |
-| content | text       | null: false                    |
-| user    | references | null: false, foreign_key: true |
-| anime   | references | null: false, foreign_key: true |
-
-
-### Association
-- belongs_to :user
-- belongs_to :anime
+# 利用方法
+### アニメ投稿
+1.トップページ（一覧ページ）のヘッダーからユーザー新規登録を行う  
+2.新規投稿ボタンから、アニメの内容（アニメタイトル・アニメの画像・あらすじ・ジャンル・良いところ・どんな人におすすめか・アニメを観た感想）を入力し、投稿する。  
+### コメントや質問をする
+1.質問したいアニメ投稿をクリックし、詳細ページへ遷移する。  
+2.コメント入力欄からコメントや質問をする。
+### ネタバレボタンをクリックする
+1.アニメ投稿をクリックし、詳細ページへ遷移する。  
+2.内容を見てネタバレと思ったら、「ネタバレ！」をクリックする。
 
 
-
-## netabaresテーブル
-| Column | Type       | Option                         |
-|--------|------------|--------------------------------|
-| id     | integer    | null: false                    |
-| count  | integer    | null: false                    |
-| user   | references | null: false, foreign_key: true |
-| anime  | references | null: false, foreign_key: true |
+# アプリケーションを作成した背景
+面白いアニメを探そうとしたときに、そのアニメのどこが良いのか、どんな人におすすめなのかをネタバレ無しで知りたいと思った。なので、ネタバレを避けたいという人のために、他の人にネタバレ無しでおすすめしてもたえたり、おすすめしてもらった人にスレッドのような形式で質問できるアプリケーションを開発することにした。
 
 
-### Association
-- belongs_to :user
-- belongs_to :anime
+# 洗い出した要件
 
+
+# 実装した機能について
+
+
+# 実装予定の機能
+
+
+# データベースの設計
+[![Image from Gyazo](https://i.gyazo.com/5569acf7ddbcbe51a5440eed84bf1df3.png)](https://gyazo.com/5569acf7ddbcbe51a5440eed84bf1df3)
+
+# 画面遷移図
+[![Image from Gyazo](https://i.gyazo.com/f2430d42bb49894136073491e2966582.png)](https://gyazo.com/f2430d42bb49894136073491e2966582)
+
+# 開発環境
+
+
+# ローカルでの動作方法
+
+
+# 工夫したポイント
+
+
+# 改善点
+
+
+# 製作時間
 
