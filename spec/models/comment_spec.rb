@@ -53,11 +53,10 @@ RSpec.describe Comment, type: :model do
         @comment_reply.valid?
         expect(@comment_reply.errors.full_messages).to include("Content can't be blank")
       end
-      it 'parent_idが空では投稿できない' do
-        @comment_reply.parent_id = ''
+      it 'contentが1000文字を超える場合は投稿できない' do
+        @comment_reply.content = 'a' * 1001
         @comment_reply.valid?
-        binding.pry
-        expect(@comment_reply.errors.full_messages).to include("Parent_id can't be blank")
+        expect(@comment_reply.errors.full_messages).to include("Content is too long (maximum is 1000 characters)")
       end
       it 'userが紐付いていないと投稿できない' do
         @comment_reply.user = nil
