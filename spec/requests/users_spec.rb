@@ -5,7 +5,7 @@ RSpec.describe "Users", type: :request do
     @user = FactoryBot.create(:user)
     @anime = FactoryBot.create(:anime, user: @user)
   end
-  describe "GET /users" do
+  describe "GET #show" do
     it 'showアクションにリクエストすると正常にレスポンスが返ってくる' do 
       get user_path(@user)
       expect(response.status).to eq 200
