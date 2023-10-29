@@ -28,22 +28,47 @@
 
 
 # 洗い出した要件
-
+https://docs.google.com/spreadsheets/d/1uUXSaH9SH_AFsS83MqFVDaH-cQ26J2G-/edit?usp=sharing&ouid=105158140806080467471&rtpof=true&sd=true
 
 # 実装した機能について
+### ユーザー管理機能
+
+### アニメ一覧機能
+
+### アニメ投稿機能
+
+### アニメ編集機能
+
+### アニメ削除機能
+
+### アニメ詳細機能
+
+### アニメ検索機能
+
+### コメントと質問機能
+
+### ネタバレカウント機能
 
 
 # 実装予定の機能
 
 
 # データベースの設計
-[![Image from Gyazo](https://i.gyazo.com/5569acf7ddbcbe51a5440eed84bf1df3.png)](https://gyazo.com/5569acf7ddbcbe51a5440eed84bf1df3)
+[![Image from Gyazo](https://i.gyazo.com/e82da951a26b536e007f0aa13b64a2de.png)](https://gyazo.com/e82da951a26b536e007f0aa13b64a2de)
 
 # 画面遷移図
 [![Image from Gyazo](https://i.gyazo.com/f2430d42bb49894136073491e2966582.png)](https://gyazo.com/f2430d42bb49894136073491e2966582)
 
 # 開発環境
-
+・フロントエンド  
+・バックエンド  
+・インフラ  
+・テスト  
+・テキストエディタ  
+・Ruby  
+・Ruby on Rails  
+・JavaScript  
+・jQuery  
 
 # ローカルでの動作方法
 
