@@ -80,10 +80,10 @@ RSpec.describe "Animes", type: :request do
     end
   end
 
-  describe 'GET #create' do
-    it 'createアクションにリクエストすると正常にレスポンスが返ってくる' do 
-      get animes_path(@anime)
-      expect(response.status).to eq 200
+  describe 'POST #create' do
+    it 'createアクションにリクエストすると正常にリダイレクトする' do 
+      post animes_path, params: { anime: @anime.attributes }
+      expect(response.status).to eq 302
     end
   end
 
@@ -131,18 +131,19 @@ RSpec.describe "Animes", type: :request do
     end
   end
 
-  describe 'GET #update' do
-    it 'updateアクションにリクエストすると正常にレスポンスが返ってくる' do 
-      get anime_path(@anime)
-      expect(response.status).to eq 200
+  describe 'patch #update' do
+    it 'updateアクションにリクエストすると正常にリダイレクトする' do
+      sign_in @user
+      patch anime_path(@anime), params: { anime: @anime.attributes }
+      expect(response.status).to eq 302
     end
   end
 
-  describe 'GET #destroy' do
-    it 'destroyアクションにリクエストすると正常にレスポンスが返ってくる' do 
+  describe 'DELETE #destroy' do
+    it 'destroyアクションにリクエストすると正常にリダイレクトする' do 
       sign_in @user
-      get anime_path(@anime)
-      expect(response.status).to eq 200
+      delete anime_path(@anime)
+      expect(response.status).to eq 302
     end
   end
 
