@@ -34,7 +34,7 @@ class AnimesController < ApplicationController
     @anime = Anime.find(params[:id])
      if @anime.update(anime_params)
       @anime.update(edited: true)
-      redirect_to session[:previous_url]
+      redirect_to session[:previous_url] || root_path
      else
       render :edit, status: :unprocessable_entity
      end

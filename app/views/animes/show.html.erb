@@ -45,7 +45,7 @@
                 <div class="show-anime-netabare-button">
                   <% if user_signed_in? && current_user != @anime.user %>
                     <div class="show-anime-netabare-button-form" id="netabare-buttons">
-                      <%= form_tag(change_count_anime_netabare_path(@anime), method: :post, id: "change_count-form") do %>
+                      <%= form_tag(change_count_anime_netabare_path(@anime), method: :post, data: {turbo: false}, id: "change_count-form") do %>
                         <%= submit_tag "ネタバレ！", id: "change_count-button" %>
                       <% end %>
                     </div>
