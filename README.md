@@ -121,10 +121,11 @@ https://docs.google.com/spreadsheets/d/1uUXSaH9SH_AFsS83MqFVDaH-cQ26J2G-/edit?us
 
 # ローカルでの動作方法
 % git clone https://github.com/kenshi39847/anime-app.git  
-% cd anime-app
-% bundle install
-% rails db:create
-% rails db:migrate
+% cd anime-app  
+% bundle install  
+% rails db:create  
+% rails db:migrate  
+
 
 # 工夫したポイント
 コメント機能で、それぞれのコメントに対して返信をつけることができました。また、jqueryとアコーディオンメニューを使用することによって、返信入力欄を表示したり、隠したりできるようにしました。  
