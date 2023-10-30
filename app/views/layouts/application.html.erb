@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>No Anime No Life</title>
+    <title>No Netabare Anime Life</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,7 +13,7 @@
   <body>
     <!-- ヘッダー -->
     <header class="header">
-      <div class="app-name"><a href="/">No Anime No Life</a></div>
+      <div class="app-name"><a href="/">No Netabare Anime Life</a></div>
       <% if user_signed_in? %>
         <div class="header-lists">
           <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "log-out" %>
