@@ -34,7 +34,7 @@
                   <%= @anime.title %>
                 </div>
                 <div class="show-anime-user-name">
-                  投稿者：<%= @anime.user.name %>
+                  投稿者：<%= link_to @anime.user.name, user_path(@anime.user), class: 'user-name'%>
                 </div>
               </div>
               <div class="show-anime-netabare">
