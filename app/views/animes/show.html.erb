@@ -144,7 +144,7 @@
               コメントや質問を記入
             </div>
             <% if user_signed_in? %>
-              <%= form_with(model:[@anime,@comment]) do |form| %>
+              <%= form_with model:[@anime,@comment], data: {turbo: false} do |form| %>
                 <%= form.text_area :content, class: "comment-form", rows: 5, placeholder: "コメントや質問を入力してください" %>
                 <%= form.hidden_field :anime_id, value: @anime.id %>
                 <div class="comment-actions">
