@@ -28,18 +28,18 @@ RSpec.describe Anime, type: :model do
         @anime.valid?
         expect(@anime.errors.full_messages).to include("Synopsis can't be blank")
       end
-      it 'genre_idが--では投稿できない' do
-        @anime.genre_id = '--'
+      it 'genre_idが空では投稿できない' do
+        @anime.genre_id = 0
         @anime.valid?
         expect(@anime.errors.full_messages).to include("Genre can't be blank")
       end
       it 'good_point_idが空では投稿できない' do
-        @anime.good_point_id = '--'
+        @anime.good_point_id = 0
         @anime.valid?
         expect(@anime.errors.full_messages).to include("Good point can't be blank")
       end
       it 'recommendation_idが空では投稿できない' do
-        @anime.recommendation_id = '--'
+        @anime.recommendation_id = 0
         @anime.valid?
         expect(@anime.errors.full_messages).to include("Recommendation can't be blank")
       end
