@@ -25,7 +25,7 @@
         <div class="show-anime-content">
           <div class="show-anime-content-header">
             <div class="show-anime-header-left">
-              <%= image_tag @anime.image.variant(resize: '300x300'), class: 'show-anime-image' if @anime.image.attached? %>
+              <%= image_tag @anime.image.variant(resize: '300x300!'), class: 'show-anime-image' if @anime.image.attached? %>
             </div>
             <div class="show-anime-header-right">
               <div class="show-anime-title-user">
