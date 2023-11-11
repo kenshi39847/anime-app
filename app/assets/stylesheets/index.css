@@ -91,9 +91,17 @@
   padding: 50px 30px 50px 30px;
 }
 
+.matome {
+  margin: 30px 0;
+}
+
+.space-for-edit {
+  width: 100px;
+  height: 25px;
+}
+
 .post {
   width: 400px;
-  margin: 30px 0;
 }
 
 .anime-content {
