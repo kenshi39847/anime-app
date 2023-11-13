@@ -8,69 +8,73 @@
       
     <div class="posts">
       <% @animes.each do |anime|%>
-        <div class="post">
-          <div class="edited-end-edit-delete">
-            <div class="edited-end">
-              <% if anime.edited %>
-                <div class="edited-end-view">
-                  <%= "編集済み" %>
+        <div class="matome">
+          <div class="post">
+            <div class="edited-end-edit-delete">
+              <div class="edited-end">
+                <div class="space-for-edit">
+                  <% if anime.edited %>
+                    <div class="edited-end-view">
+                      <%= "編集済み" %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+              <% if current_user == anime.user %>
+                <div class="edit-delete-button">
+                  <div class="content-edit">
+                    <%= link_to '編集', edit_anime_path(anime), class: "edit-button" %>
+                  </div>
+                  <div class="content-delete">
+                    <%= link_to '削除', anime_path(anime), data: { turbo_method: :delete }, class: "delete-button" %>
+                  </div>
                 </div>
               <% end %>
             </div>
-            <% if current_user == anime.user %>
-              <div class="edit-delete-button">
-                <div class="content-edit">
-                  <%= link_to '編集', edit_anime_path(anime), class: "edit-button" %>
-                </div>
-                <div class="content-delete">
-                  <%= link_to '削除', anime_path(anime), data: { turbo_method: :delete }, class: "delete-button" %>
-                </div>
-              </div>
-            <% end %>
-          </div>
           
-          <div class="anime-content">
-            <a href="<%= anime_path(anime) %>" data-turbo="false" >
-              <div class="content-header">
-                <div class="content-anime">
-                  <div class="content-title">
-                    アニメタイトル
+            <div class="anime-content">
+              <a href="<%= anime_path(anime) %>" data-turbo="false" >
+                <div class="content-header">
+                  <div class="content-anime">
+                    <div class="content-title">
+                      アニメタイトル
+                    </div>
+                    <div class="content-anime-title">
+                      <%= anime.title %>
+                    </div>
                   </div>
-                  <div class="content-anime-title">
-                    <%= anime.title %>
+                  <div class="content-netabare-count">
+                    <div class="netabare">
+                      <%= @netabare[anime.id] %>
+                    </div>
+                    <div class="count">
+                      ネタバレカウント
+                    </div>
                   </div>
                 </div>
-                <div class="content-netabare-count">
-                  <div class="netabare">
-                    <%= @netabare[anime.id] %>
-                  </div>
-                  <div class="count">
-                    ネタバレカウント
-                  </div>
+                <div class="content-middle">
+                  <%= image_tag anime.image.variant(resize: '180x200!'), class: 'content-image' if anime.image.attached? %>
                 </div>
-              </div>
-              <div class="content-middle">
-                <%= image_tag anime.image.variant(resize: '180x200!'), class: 'content-image' if anime.image.attached? %>
-              </div>
-              <div class="content-footer">
-                <table class="detail-table">
-                  <tbody>
-                    <tr>
-                      <th class="detail-anime">ジャンル</th>
-                      <td class="detail-value"><%= anime.genre.name %></td>
-                    </tr>
-                    <tr>
-                      <th class="detail-anime">良いところ</th>
-                      <td class="detail-value"><%= anime.good_point.name %></td>
-                    </tr>
-                    <tr>
-                      <th class="detail-anime">どんな人におすすめか</th>
-                      <td class="detail-value"><%= anime.recommendation.name %></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </a>
+                <div class="content-footer">
+                  <table class="detail-table">
+                    <tbody>
+                      <tr>
+                        <th class="detail-anime">ジャンル</th>
+                        <td class="detail-value"><%= anime.genre.name %></td>
+                      </tr>
+                      <tr>
+                        <th class="detail-anime">良いところ</th>
+                        <td class="detail-value"><%= anime.good_point.name %></td>
+                      </tr>
+                      <tr>
+                        <th class="detail-anime">どんな人におすすめか</th>
+                        <td class="detail-value"><%= anime.recommendation.name %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       <% end %>

@@ -32,55 +32,59 @@
 
     <div class="posts">
       <% @animes.each do |anime| %>
-        <div class="post">
-          <% if anime.edited %>
-            <div class="edited-end-view"><%= "編集済み" %></div>
-          <% end %>
+        <div class="matome">
+          <div class="post">
+            <div class="space-for-edit">
+              <% if anime.edited %>
+                <div class="edited-end-view"><%= "編集済み" %></div>
+              <% end %>
+            </div>
 
-          <div class="anime-content">
-            <a href="<%= anime_path(anime) %>" data-turbo="false" >
-              <div class="content-header">
-                <div class="content-anime">
-                  <div class="content-title">
-                    アニメタイトル
+            <div class="anime-content">
+              <a href="<%= anime_path(anime) %>" data-turbo="false" >
+                <div class="content-header">
+                  <div class="content-anime">
+                    <div class="content-title">
+                      アニメタイトル
+                    </div>
+                    <div class="content-anime-title">
+                      <%= anime.title %>
+                    </div>
                   </div>
-                  <div class="content-anime-title">
-                    <%= anime.title %>
+                  <div class="content-netabare-count">
+                    <div class="netabare">
+                      <%= @netabare[anime.id] %>
+                    </div>
+                    <div class="count">ネタバレカウント</div>
                   </div>
                 </div>
-                <div class="content-netabare-count">
-                  <div class="netabare">
-                    <%= @netabare[anime.id] %>
-                  </div>
-                  <div class="count">ネタバレカウント</div>
+                <div class="content-middle">
+                  <%= image_tag anime.image.variant(resize: '180x200!'), class: 'content-image' if anime.image.attached? %>
                 </div>
-              </div>
-              <div class="content-middle">
-                <%= image_tag anime.image.variant(resize: '180x200!'), class: 'content-image' if anime.image.attached? %>
-              </div>
-              <div class="content-footer">
-                <table class="detail-table">
-                  <tbody>
-                    <tr>
-                      <th class="detail-anime">ジャンル</th>
-                      <td class="detail-value"><%= anime.genre.name %></td>
-                    </tr>
-                    <tr>
-                      <th class="detail-anime">良いところ</th>
-                      <td class="detail-value"><%= anime.good_point.name %></td>
-                    </tr>
-                    <tr>
-                      <th class="detail-anime">どんな人におすすめか</th>
-                      <td class="detail-value"><%= anime.recommendation.name %></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </a>
-          </div>
+                <div class="content-footer">
+                  <table class="detail-table">
+                    <tbody>
+                      <tr>
+                        <th class="detail-anime">ジャンル</th>
+                        <td class="detail-value"><%= anime.genre.name %></td>
+                      </tr>
+                      <tr>
+                        <th class="detail-anime">良いところ</th>
+                        <td class="detail-value"><%= anime.good_point.name %></td>
+                      </tr>
+                      <tr>
+                        <th class="detail-anime">どんな人におすすめか</th>
+                        <td class="detail-value"><%= anime.recommendation.name %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </a>
+            </div>
 
-          <div class="content-user-name">
-            投稿者：<%= link_to anime.user.name, user_path(anime.user), class: 'user-name'%>
+            <div class="content-user-name">
+              投稿者：<%= link_to anime.user.name, user_path(anime.user), class: 'user-name'%>
+            </div>
           </div>
         </div>
       <% end %>
