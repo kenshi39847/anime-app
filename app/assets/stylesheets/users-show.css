@@ -1,4 +1,21 @@
 /* --------------------マイページ-------------------- */
+.user-show-my-pages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-show-my-page {
+  margin: 50px 0;
+}
+
+.user-show-my-page-content {
+  border: 2px solid;
+  padding: 30px;
+}
+
+
+
 .user-show-charts {
   height: 100px;
   width: 100%;
@@ -6,6 +23,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #00ffa2;
 }
 
 .user-show-anime-chart {
