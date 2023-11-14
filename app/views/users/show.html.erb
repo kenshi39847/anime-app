@@ -9,12 +9,12 @@
         </div>
         <div class="user-show-my-page-contents">
           <div class="user-show-my-page-content">
-            <div class="user-show-my-page-name">
-              <%= "#{@user.name}さんのマイページ" %>
+            <div class="user-show-my-page-name-friend">
+              <div class="user-show-my-page-name"> <%= "#{@user.name}さんのマイページ" %> </div>
               <%= link_to 'フレンド登録する', root_path, class: "user-show-link-friend-register" %>
             </div>
             <div class="user-show-end-animes">
-              <%= link_to '観終わったアニメ一覧', root_path, class: "user-show-link-end-anime" %>
+              <%= link_to '➡観終わったアニメ一覧', root_path, class: "user-show-link-end-anime" %>
             </div>
             <div class="user-show-tables">
               <table class="user-show-detail-table">
