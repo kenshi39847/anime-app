@@ -1,4 +1,77 @@
 /* --------------------マイページ-------------------- */
+.user-show-my-pages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-show-my-page {
+  margin: 50px 0;
+}
+
+.user-show-link {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px 10px 30px;
+
+}
+
+.user-show-my-page-content {
+  border: 2px solid;
+  padding: 30px;
+}
+
+.user-show-my-page-name-friend {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0 20px 0;
+}
+
+.user-show-my-page-name {
+  font-size: 20px;
+}
+
+.user-show-tables {
+  font-size: 18px;
+  overflow-wrap: anywhere;
+  padding: 10px 0 10px 0;
+}
+
+.user-show-detail-table {
+  width: 400px;
+  padding: 0 20px 0 20px;
+}
+
+.user-show-detail-animes {
+  width: 20%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 12px;
+  text-align: center;
+}
+
+.user-show-detail-anime {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #dedede;
+  font-size: 12px;
+}
+
+.user-show-detail-free-comments {
+  width: 20%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 12px;
+  text-align: center;
+}
+
+.user-show-detail-free-comment {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #dedede;
+  font-size: 12px;
+}
+
 .user-show-charts {
   height: 100px;
   width: 100%;
@@ -6,6 +79,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #00ffa2;
 }
 
 .user-show-anime-chart {
