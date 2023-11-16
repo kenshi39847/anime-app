@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :animes
   has_many :comments
   has_many :netabares
+  has_one :profile, dependent: :destroy
 
   validates :name, presence: true
 end
