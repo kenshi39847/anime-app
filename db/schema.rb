@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_21_124626) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_16_091521) do
   create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -74,6 +74,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_21_124626) do
     t.index ["user_id"], name: "index_netabares_on_user_id"
   end
 
+  create_table "plofiles", charset: "utf8", force: :cascade do |t|
+    t.string "favorite1"
+    t.string "favirite2"
+    t.string "favirite3"
+    t.string "favirite4"
+    t.string "favirite5"
+    t.text "free_comment"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_plofiles_on_user_id"
+  end
+
   create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
@@ -94,4 +107,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_21_124626) do
   add_foreign_key "comments", "users"
   add_foreign_key "netabares", "animes"
   add_foreign_key "netabares", "users"
+  add_foreign_key "plofiles", "users"
 end
