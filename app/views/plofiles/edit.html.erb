@@ -1,0 +1,16 @@
+  <div class="edit-plofils">
+    <div class="edit-plofile">
+      <div class="anime-edit-change">
+        アニメ情報を変更
+      </div>
+      <%= form_with(model: @plofile, local: true) do |form| %>
+        <%= form.text_field :favorite1, placeholder: "アニメ1" %>
+        <%= form.text_field :favorite2, placeholder: "アニメ2" %>
+        <%= form.text_field :favorite3, placeholder: "アニメ3" %>
+        <%= form.text_field :favorite4, placeholder: "アニメ4" %>
+        <%= form.text_field :favorite5, placeholder: "アニメ5" %>
+        <%= form.text_area :free_comment, placeholder: "text", rows: "10" %>
+        <%= form.submit "内容を変更" %>
+      <% end %>
+    </div>
+  </div>
