@@ -1,3 +1,12 @@
-.edit-plofile {
-  
+/* --------------------プロフィール変更ページ-------------------- */
+.anime-edit-change {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.edit-plofile-forms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

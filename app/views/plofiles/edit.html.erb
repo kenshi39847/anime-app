@@ -3,14 +3,30 @@
       <div class="anime-edit-change">
         アニメ情報を変更
       </div>
-      <%= form_with(model: @plofile, local: true) do |form| %>
-        <%= form.text_field :favorite1, placeholder: "アニメ1" %>
-        <%= form.text_field :favorite2, placeholder: "アニメ2" %>
-        <%= form.text_field :favorite3, placeholder: "アニメ3" %>
-        <%= form.text_field :favorite4, placeholder: "アニメ4" %>
-        <%= form.text_field :favorite5, placeholder: "アニメ5" %>
-        <%= form.text_area :free_comment, placeholder: "text", rows: "10" %>
-        <%= form.submit "内容を変更" %>
-      <% end %>
+      <div class="edit-plofile-forms">
+        <%= form_with(model: @plofile, local: true) do |form| %>
+          <div class="edit-plofile-form">
+            <%= form.text_field :favorite1, placeholder: "アニメ1" %>
+          </div>
+          <div class="edit-plofile-form">
+            <%= form.text_field :favorite2, placeholder: "アニメ2" %>
+          </div>
+          <div class="edit-plofile-form">
+            <%= form.text_field :favorite3, placeholder: "アニメ3" %>
+          </div>
+          <div class="edit-plofile-form">
+            <%= form.text_field :favorite4, placeholder: "アニメ4" %>
+          </div>
+          <div class="edit-plofile-form">
+            <%= form.text_field :favorite5, placeholder: "アニメ5" %>
+          </div>
+          <div class="edit-plofile-free-comments">
+            <%= form.text_area :free_comment, placeholder: "コメントを入力", rows: "10" %>
+          </div>
+          <div class="edit-plofile-submits">
+            <%= form.submit "内容を変更" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
