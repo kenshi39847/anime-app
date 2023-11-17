@@ -43,7 +43,20 @@
             </div>
 
             <div class="user-show-my-page-change-buttons">
-              <%= link_to 'マイページを作成', new_user_profile_path, class: "user-show-link-change-button"%>
+              <% if user_signed_in? %>
+                <% unless @user.profile.present? %>
+                  <% if current_user.id == @user.id %>
+                    <div class="profile-btn">
+                      <%= link_to 'プロフィールを編集する', new_profile_path, class: "profile-edit-btn" %>
+                    </div>
+                  <% end %>
+                <% end %>
+                <% if current_user.id == @user.id && @user.profile.present? %>
+                  <div class="profile-btn">
+                    <%= link_to 'プロフィールを編集する', edit_profile_path(@user.profile.id), class: "profile-edit-btn" %>
+                  </div>
+                <% end %>
+              <% end %> 
             </div>
           </div>
         </div>

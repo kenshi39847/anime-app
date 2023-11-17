@@ -10,7 +10,6 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     if @profile.save
       return redirect_to user_path(@profile.user.id)
-    end
     else
       render :new
     end
