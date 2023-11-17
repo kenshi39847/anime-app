@@ -1,29 +1,29 @@
-<div class="edit-plofils">
-    <div class="edit-plofile">
+<div class="edit-profils">
+    <div class="edit-profile">
       <div class="anime-edit-change">
         アニメ情報を変更
       </div>
-      <div class="edit-plofile-forms">
-        <%= form_with(model: @plofile, local: true) do |form| %>
-          <div class="edit-plofile-form">
+      <div class="edit-profile-forms">
+        <%= form_with(model: @profile, local: true) do |form| %>
+          <div class="edit-profile-form">
             <%= form.text_field :favorite1, placeholder: "アニメ1" %>
           </div>
-          <div class="edit-plofile-form">
+          <div class="edit-profile-form">
             <%= form.text_field :favorite2, placeholder: "アニメ2" %>
           </div>
-          <div class="edit-plofile-form">
+          <div class="edit-profile-form">
             <%= form.text_field :favorite3, placeholder: "アニメ3" %>
           </div>
-          <div class="edit-plofile-form">
+          <div class="edit-profile-form">
             <%= form.text_field :favorite4, placeholder: "アニメ4" %>
           </div>
-          <div class="edit-plofile-form">
+          <div class="edit-profile-form">
             <%= form.text_field :favorite5, placeholder: "アニメ5" %>
           </div>
-          <div class="edit-plofile-free-comments">
+          <div class="edit-profile-free-comments">
             <%= form.text_area :free_comment, placeholder: "コメントを入力", rows: "10" %>
           </div>
-          <div class="edit-plofile-submits">
+          <div class="edit-profile-submits">
             <%= form.submit "内容を変更" %>
           </div>
         <% end %>
