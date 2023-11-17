@@ -71,6 +71,20 @@
   font-size: 12px;
 }
 
+.profile-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-edit-btn {
+  text-decoration: none;
+  color: #000000;
+}
+
+.profile-edit-btn:hover {
+  opacity: 0.6;
+}
+
 .user-show-charts {
   height: 100px;
   width: 100%;
