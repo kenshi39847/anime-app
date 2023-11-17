@@ -6,5 +6,6 @@ class UsersController < ApplicationController
     @animes.each do |anime|
       @netabare[anime.id] = Netabare.where(anime_id: anime.id).count
     end
+    @profile = @user.profile
   end
 end

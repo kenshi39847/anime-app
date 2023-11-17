@@ -16,31 +16,34 @@
             <div class="user-show-end-animes">
               <%= link_to '➡観終わったアニメ一覧', root_path, class: "user-show-link-end-anime" %>
             </div>
-
+            <% if @profile.present? %>
             <div class="user-show-tables">
               <table class="user-show-detail-table">
                 <tr>
                   <td rowspan = "5", class="user-show-detail-animes">お気に入りのアニメ</td>
-                  <td class="user-show-detail-anime">アニメ１</td>
+                  <td class="user-show-detail-anime"><%= @profile.favorite1 %></td>
                 </tr>
                 <tr>
-                  <td class="user-show-detail-anime">アニメ２</td>
+                  <td class="user-show-detail-anime"><%= @profile.favorite2 %></td>
                 </tr>
                 <tr>
-                  <td class="user-show-detail-anime">アニメ３</td>
+                  <td class="user-show-detail-anime"><%= @profile.favorite3 %></td>
                 </tr>
                 <tr>
-                  <td class="user-show-detail-anime">アニメ４</td>
+                  <td class="user-show-detail-anime"><%= @profile.favorite4 %></td>
                 </tr>
                 <tr>
-                  <td class="user-show-detail-anime">アニメ５</td>
+                  <td class="user-show-detail-anime"><%= @profile.favorite5 %></td>
                 </tr>
                 <tr>
                   <td rowspan = "5", class="user-show-detail-free-comments">フリーコメント</td>
-                  <td class="user-show-detail-free-comment">マイページを装飾する機能は未完成です</td>
+                  <td class="user-show-detail-free-comment"><%= @profile.free_comment %></td>
                 </tr>
               </table>
             </div>
+            <% else %>
+              <p>プロフィールがまだ登録されていません。</p>
+            <% end %>
 
             <div class="user-show-my-page-change-buttons">
               <% if user_signed_in? %>
