@@ -47,7 +47,7 @@
                 <% unless @user.profile.present? %>
                   <% if current_user.id == @user.id %>
                     <div class="profile-btn">
-                      <%= link_to 'プロフィールを編集する', new_profile_path, class: "profile-edit-btn" %>
+                      <%= link_to 'プロフィールを登録する', new_profile_path, class: "profile-edit-btn" %>
                     </div>
                   <% end %>
                 <% end %>
