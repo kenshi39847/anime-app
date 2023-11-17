@@ -13,8 +13,8 @@ Rails.application.routes.draw do
     end
     
   end
-  resources :users, only: :show do
-    resources :profiles, only: [:new, :create, :edit, :update]
-  end
+  resources :users, only: :show
+  resources :profiles, only: [:new, :create, :edit, :update]
+
   root to: "animes#index"
 end
