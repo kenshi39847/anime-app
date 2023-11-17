@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_16_091521) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_17_064400) do
   create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -74,17 +74,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_16_091521) do
     t.index ["user_id"], name: "index_netabares_on_user_id"
   end
 
-  create_table "plofiles", charset: "utf8", force: :cascade do |t|
+  create_table "profiles", charset: "utf8", force: :cascade do |t|
     t.string "favorite1"
-    t.string "favirite2"
-    t.string "favirite3"
-    t.string "favirite4"
-    t.string "favirite5"
+    t.string "favorite2"
+    t.string "favorite3"
+    t.string "favorite4"
+    t.string "favorite5"
     t.text "free_comment"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_plofiles_on_user_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "users", charset: "utf8", force: :cascade do |t|
@@ -107,5 +107,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_16_091521) do
   add_foreign_key "comments", "users"
   add_foreign_key "netabares", "animes"
   add_foreign_key "netabares", "users"
-  add_foreign_key "plofiles", "users"
+  add_foreign_key "profiles", "users"
 end
