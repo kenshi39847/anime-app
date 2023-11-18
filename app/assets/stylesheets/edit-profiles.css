@@ -1,12 +1,43 @@
 /* --------------------プロフィール変更ページ-------------------- */
+.edit-profiles {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.edit-profile {
+  width: 600px;
+  border: 2px solid;
+  padding: 50px 0 50px 0;
+  margin-top: 50px;
+}
+
 .anime-edit-change {
   text-align: center;
   font-size: 30px;
   font-weight: 600;
+  padding: 0 0 30px 0;
 }
 
 .edit-profile-forms {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+}
+
+.edit-profile-form{
+  padding: 10px 0;
+}
+
+.edit-favorite-anime {
+  width: 500px;
+}
+
+.edit-free-comment {
+  width: 500px;
+}
+
+.edit-profile-submits {
+  text-align: center;
+  padding: 30px 0 0 0;
 }

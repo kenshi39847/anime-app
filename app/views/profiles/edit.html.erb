@@ -1,27 +1,33 @@
-<div class="edit-profils">
+  <div class="edit-profiles">
     <div class="edit-profile">
       <div class="anime-edit-change">
-        アニメ情報を変更
+        アニメ情報を変更する
       </div>
       <div class="edit-profile-forms">
         <%= form_with(model: @profile, local: true) do |form| %>
           <div class="edit-profile-form">
-            <%= form.text_field :favorite1, placeholder: "アニメ1" %>
+            <%= form.label :favorite1, "アニメ1" %><br/>
+            <%= form.text_field :favorite1, id:"favorite-anime", class: "edit-favorite-anime" %>
           </div>
           <div class="edit-profile-form">
-            <%= form.text_field :favorite2, placeholder: "アニメ2" %>
+            <%= form.label :favorite2, "アニメ2" %><br/>
+            <%= form.text_field :favorite2, id:"favorite-anime", class: "edit-favorite-anime" %>
           </div>
           <div class="edit-profile-form">
-            <%= form.text_field :favorite3, placeholder: "アニメ3" %>
+            <%= form.label :favorite3, "アニメ3" %><br/>
+            <%= form.text_field :favorite3, id:"favorite-anime", class: "edit-favorite-anime" %>
           </div>
           <div class="edit-profile-form">
-            <%= form.text_field :favorite4, placeholder: "アニメ4" %>
+            <%= form.label :favorite4, "アニメ4" %><br/>
+            <%= form.text_field :favorite4, id:"favorite-anime", class: "edit-favorite-anime" %>
           </div>
           <div class="edit-profile-form">
-            <%= form.text_field :favorite5, placeholder: "アニメ5" %>
+            <%= form.label :favorite5, "アニメ5" %><br/>
+            <%= form.text_field :favorite5, id:"favorite-anime", class: "edit-favorite-anime" %>
           </div>
           <div class="edit-profile-free-comments">
-            <%= form.text_area :free_comment, placeholder: "コメントを入力", rows: "10" %>
+            <%= form.label :free_comment, "フリーコメント" %><br/>
+            <%= form.text_area :free_comment, placeholder: "コメントを入力", rows: "10", class: "edit-free-comment" %>
           </div>
           <div class="edit-profile-submits">
             <%= form.submit "内容を変更" %>

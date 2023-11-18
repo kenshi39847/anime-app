@@ -20,7 +20,7 @@
             <div class="user-show-tables">
               <table class="user-show-detail-table">
                 <tr>
-                  <td rowspan = "5", class="user-show-detail-animes">お気に入りのアニメ</td>
+                  <td rowspan = "5", class="user-show-detail-animes">お気に入りの<br>アニメ</td>
                   <td class="user-show-detail-anime"><%= @profile.favorite1 %></td>
                 </tr>
                 <tr>
@@ -37,12 +37,12 @@
                 </tr>
                 <tr>
                   <td rowspan = "5", class="user-show-detail-free-comments">フリーコメント</td>
-                  <td class="user-show-detail-free-comment"><%= @profile.free_comment %></td>
+                  <td class="user-show-detail-free-comment"><%= simple_format(@profile.free_comment) %></td>
                 </tr>
               </table>
             </div>
             <% else %>
-              <p>プロフィールがまだ登録されていません。</p>
+              <p class="profile-not-found">プロフィールがまだ登録されていません。</p>
             <% end %>
 
             <div class="user-show-my-page-change-buttons">
