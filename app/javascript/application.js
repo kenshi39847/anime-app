@@ -17,3 +17,5 @@ $(function() {
     $(this).next().slideToggle(400);
   });
 });
+
+import "end-anime"
