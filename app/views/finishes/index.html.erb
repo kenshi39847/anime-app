@@ -11,3 +11,14 @@
 
 <div id="list">
 </div>
+
+<% @finishes.each do |finish| %>
+<div class="post">
+  <div class="post-date">
+    <%= finish.finish_anime %>
+  </div>
+  <div class="post-content">
+    <%= finish.group_id %>
+  </div>
+</div>
+<% end %>
