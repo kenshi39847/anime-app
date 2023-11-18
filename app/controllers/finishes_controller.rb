@@ -4,13 +4,16 @@ class FinishesController < ApplicationController
   end
 
   def create
-    binding.pry
-    Finish.create(finish_params)
-    redirect_to action: :index
+    @finish = Finish.create(finish_params)
+    if @finish.save
+      return redirect_to finishes_path
+    else
+      render 'index'
+    end
   end
 
   private
   def finish_params
-    params.require(:finish).permit(:finish_anime, :group_id).merge(user_id: current_user.id)
+    params.permit(:finish_anime, :group_id).merge(user_id: current_user.id)
   end
 end

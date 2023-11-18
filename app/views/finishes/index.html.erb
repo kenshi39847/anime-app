@@ -1,5 +1,5 @@
 <!-- 観終わったアニメ一覧ページ -->
-  <%= form_with model: @finish_anime, id: "finish" do |form| %>
+  <%= form_with model: @finish, id: "finish" do |form| %>
     <%= form.label :finish_anime, "アニメタイトル" %><br />
     <%= form.text_field :finish_anime, id:"finish-anime-title", class: "end-anime-title" %>
     <%= form.label :group_id, "分類" %><br />
