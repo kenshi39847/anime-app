@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :netabares
   has_one :profile
+  has_many :finishes
 
   validates :name, presence: true
 end
