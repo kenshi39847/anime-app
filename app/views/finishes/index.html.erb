@@ -1,11 +1,13 @@
-<h1>観終わったアニメ</h1>
-<%= form_with model: @finish_anime, id: "form" do |form| %>
-  <%= form.label :finish_anime, "アニメタイトル" %><br />
-  <%= form.text_field :finish_anime, id:"finish-anime-title", class: "end-anime-title" %>
-  <%= form.label :group_id, "分類" %><br />
-  <%= form.collection_select :group_id, Group.all, :id, :name, {prompt: '--'}, class: "end-anime-group" %>
-  <%= form.submit '追加する' , id: "submit" %>
-<% end %>
+<!-- 観終わったアニメ一覧ページ -->
+  <%= form_with model: @finish_anime, id: "finish" do |form| %>
+    <%= form.label :finish_anime, "アニメタイトル" %><br />
+    <%= form.text_field :finish_anime, id:"finish-anime-title", class: "end-anime-title" %>
+    <%= form.label :group_id, "分類" %><br />
+    <%= form.collection_select :group_id, Group.all, :id, :name, {prompt: '--'}, class: "end-anime-group" %>
+    <%= form.submit '追加する' , id: "submit" %>
+  <% end %>
+
+  <h1 class="finish-animes-index">観終わったアニメ</h1>
 
 <div id="list">
 </div>
