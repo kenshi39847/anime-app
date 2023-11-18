@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_17_064400) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_18_021557) do
   create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -65,6 +65,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_17_064400) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "finishes", charset: "utf8", force: :cascade do |t|
+    t.string "finish_anime", null: false
+    t.integer "group_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_finishes_on_user_id"
+  end
+
   create_table "netabares", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "anime_id", null: false
@@ -105,6 +114,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_17_064400) do
   add_foreign_key "comments", "animes"
   add_foreign_key "comments", "comments", column: "parent_id"
   add_foreign_key "comments", "users"
+  add_foreign_key "finishes", "users"
   add_foreign_key "netabares", "animes"
   add_foreign_key "netabares", "users"
   add_foreign_key "profiles", "users"
