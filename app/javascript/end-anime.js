@@ -13,15 +13,7 @@ function post (){
       const formText = document.getElementById("finish-anime");
       const groupId = document.getElementById("group-id-select");
       const item = XHR.response.finish;
-      const html = `
-        <div class="post">
-          <div class="post-date">
-            ${item.finish_anime}
-          </div>
-          <div class="post-content">
-            ${item.group_id}
-          </div>
-        </div>`;
+      const html = `${item.finish_anime}`;
       list.insertAdjacentHTML("afterend", html);
       formText.value = "";
       groupId.value = "";
