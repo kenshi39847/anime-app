@@ -1,0 +1,10 @@
+.finish-animes-index {
+  height: 100px;
+  background-color: #00ffa2;
+}
+
+.finish-anime-groups {
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
