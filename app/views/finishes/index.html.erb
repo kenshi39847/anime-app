@@ -1,9 +1,9 @@
 <!-- 観終わったアニメ一覧ページ -->
   <%= form_with model: @finish, id: "finish" do |form| %>
     <%= form.label :finish_anime, "アニメタイトル" %><br />
-    <%= form.text_field :finish_anime, id:"finish-anime-title", class: "end-anime-title" %>
+    <%= form.text_field :finish_anime, id:"finish-anime", class: "end-anime-title" %>
     <%= form.label :group_id, "分類" %><br />
-    <%= form.collection_select :group_id, Group.all, :id, :name, {prompt: '--'}, class: "end-anime-group" %>
+    <%= form.collection_select :group_id, Group.all, :id, :name, {prompt: '--'}, { class: "end-anime-group", id: "group-id-select" } %>
     <%= form.submit '追加する' , id: "submit" %>
   <% end %>
 

@@ -10,6 +10,8 @@ function post (){
     XHR.send(formData);
     XHR.onload = () => {
       const list = document.getElementById("list");
+      const formText = document.getElementById("finish-anime");
+      const groupId = document.getElementById("group-id-select");
       const item = XHR.response.finish;
       const html = `
         <div class="post">
@@ -21,6 +23,8 @@ function post (){
           </div>
         </div>`;
       list.insertAdjacentHTML("afterend", html);
+      formText.value = "";
+      groupId.value = "";
     };
   });
 };
