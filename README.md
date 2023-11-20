@@ -141,6 +141,6 @@ https://docs.google.com/spreadsheets/d/1uUXSaH9SH_AFsS83MqFVDaH-cQ26J2G-/edit?us
 
 
 # 製作時間
-2023年11月11日更新  
-開発：130時間  
+2023年11月20日更新  
+開発：145時間  
 
