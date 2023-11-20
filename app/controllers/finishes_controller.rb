@@ -6,9 +6,9 @@ class FinishesController < ApplicationController
   def create
     @finish = Finish.create(finish_params)
     if @finish.save
-      return redirect_to finishes_path
+      render json: { finish: @finish }
     else
-      render 'index'
+      render json: { errors: @finish.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
