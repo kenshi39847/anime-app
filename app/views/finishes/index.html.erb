@@ -12,107 +12,26 @@
 <div id="list">
 </div>
 
-<% @finishes.each do |finish| %>
-<div class="post">
-  <div class="post-date">
-    <%= finish.finish_anime %>
-  </div>
-  <div class="post-content">
-    <%= finish.group_id %>
-  </div>
-</div>
-<% end %>
-
 
 <div class="finish-index-all">
   <div class="finish-index">
     <div class="finish-high-row">
-      <div class="finish-anime-groups">
-        <div class="finish-anime-group">
-          <div class="group-id">
-            あ行
-          </div>
-          <div class="finish-anime-title">
-            アニメあー１
-          </div>
-        </div>
-        <div class="finish-anime-group">
-          <div class="group-id">
-            か行
-          </div>
-          <div class="finish-anime-title">
-            アニメかー１
+      <% Group.data.each do |group| %>
+        <div class="finish-anime-groups">
+          <div class="finish-anime-group">
+            <div class="group-id">
+              <%= group[:name] %>
+            </div>
+            <% @finishes.each do |finish| %>
+              <% if finish.group_id == group[:id] %>
+                <div class="finish-anime-title">
+                  <%= finish.finish_anime %>
+                </div>
+              <% end %>
+            <% end %>
           </div>
         </div>
-        <div class="finish-anime-group">
-          <div class="group-id">
-            さ行
-          </div>
-          <div class="finish-anime-title">
-            アニメさー１
-          </div>
-        </div>
-        <div class="finish-anime-group">
-          <div class="group-id">
-            た行
-          </div>
-          <div class="finish-anime-title">
-            アニメたー１
-          </div>
-        </div>
-        <div class="finish-anime-group">
-          <div class="group-id">
-            な行
-          </div>
-          <div class="finish-anime-title">
-            アニメなー１
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="finish-low-row">
-      <div class="finish-anime-groups">
-        <div class="finish-anime-group">
-          <div class="group-id">
-            は行
-          </div>
-          <div class="finish-anime-title">
-            アニメはー１
-          </div>
-        </div>
-        <div class="finish-anime-group">
-          <div class="group-id">
-            ま行
-          </div>
-          <div class="finish-anime-title">
-            アニメまー１
-          </div>
-        </div>
-        <div class="finish-anime-group">
-          <div class="group-id">
-            や行
-          </div>
-          <div class="finish-anime-title">
-            アニメやー１
-          </div>
-        </div>
-        <div class="finish-anime-group">
-          <div class="group-id">
-            ら行
-          </div>
-          <div class="finish-anime-title">
-            アニメらー１
-          </div>
-        </div>
-        <div class="finish-anime-group">
-          <div class="group-id">
-            わ行
-          </div>
-          <div class="finish-anime-title">
-            アニメわー１
-          </div>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
