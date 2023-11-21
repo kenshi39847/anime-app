@@ -1,3 +1,4 @@
+/*
 function post (){
 
   const form = document.getElementById("finish");
@@ -22,3 +23,4 @@ function post (){
 };
 
 window.addEventListener('turbo:load', post);
+*/

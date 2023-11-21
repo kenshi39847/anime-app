@@ -4,11 +4,12 @@ class FinishesController < ApplicationController
   end
 
   def create
-    @finish = Finish.create(finish_params)
+    @finish = Finish.new(finish_params)
     if @finish.save
-      render json: { finish: @finish }
+      redirect_to finishes_path
     else
-      render json: { errors: @finish.errors.full_messages }, status: :unprocessable_entity
+      @finishes = Finish.order(id: "DESC")
+      render 'index', status: :unprocessable_entity
     end
   end
 
