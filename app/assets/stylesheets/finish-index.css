@@ -1,6 +1,29 @@
-.finish-animes-index {
+.finish-index-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 600px 20px 30px;
+}
+
+.end-anime-title {
+  width: 500px;
+}
+
+.end-anime-group {
+  width: 100px;
+}
+
+.finish-anime-index-anime {
   height: 100px;
   background-color: #00ffa2;
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 30px;
+}
+
+.finish-animes-index {
+  font-size: 30px;
+  font-weight: 600;
 }
 
 .finish-anime-groups {

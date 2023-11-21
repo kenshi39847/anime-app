@@ -1,36 +1,47 @@
 <!-- 観終わったアニメ一覧ページ -->
-  <%= form_with model: @finish, id: "finish" do |form| %>
-    <%= form.label :finish_anime, "アニメタイトル" %><br />
-    <%= form.text_field :finish_anime, id:"finish-anime", class: "end-anime-title" %>
-    <%= form.label :group_id, "分類" %><br />
-    <%= form.collection_select :group_id, Group.all, :id, :name, {prompt: '--'}, { class: "end-anime-group", id: "group-id-select" } %>
-    <%= form.submit '追加する' , id: "submit" %>
-  <% end %>
-
-  <h1 class="finish-animes-index">観終わったアニメ</h1>
-
-
-
-
-<div class="finish-index-all">
-  <div class="finish-index">
-    <div class="finish-high-row">
-      <% Group.data.each do |group| %>
-        <div class="finish-anime-groups">
-          <div class="finish-anime-group">
-            <div class="group-id">
-              <%= group[:name] %>
-            </div>
-            <% @finishes.each do |finish| %>
-              <% if finish.group_id == group[:id] %>
-                <div class="finish-anime-title" id="list">
-                  <%= finish.finish_anime %>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
+  <div class="finish-index-forms">
+    <%= form_with model: @finish, id: "finish" do |form| %>
+      <div class="finish-index-form">
+        <div class="finish-index-form-anime-group">
+          <%= form.label :finish_anime, "アニメタイトル" %><br/>
+          <%= form.text_field :finish_anime, id:"finish-anime", class: "end-anime-title" %>
         </div>
-      <% end %>
+        <div class="finish-index-form-anime-group">
+          <%= form.label :group_id, "分類" %><br/>
+          <%= form.collection_select :group_id, Group.all, :id, :name, {prompt: '--'}, { class: "end-anime-group", id: "group-id-select" } %>
+        </div>
+        <div class="finish-index-form-anime-group">
+          <%= form.submit '追加する' , id: "submit" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="finish-anime-index-anime">
+    <div class="finish-animes-index">
+      観終わったアニメ
     </div>
   </div>
-</div>
+
+  <div class="finish-index-all">
+    <div class="finish-index">
+      <div class="finish-high-row">
+        <% Group.data.each do |group| %>
+          <div class="finish-anime-groups">
+            <div class="finish-anime-group">
+              <div class="group-id">
+                <%= group[:name] %>
+              </div>
+              <% @finishes.each do |finish| %>
+                <% if finish.group_id == group[:id] %>
+                  <div class="finish-anime-title" id="list">
+                    <%= finish.finish_anime %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
