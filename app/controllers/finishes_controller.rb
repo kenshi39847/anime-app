@@ -1,5 +1,6 @@
 class FinishesController < ApplicationController
   def index
+    # @finishes = Finish.where(user_id: params[:user_id]).order(id: "DESC") 
     @finishes = Finish.order(id: "DESC")
   end
 
