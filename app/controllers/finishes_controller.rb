@@ -1,16 +1,17 @@
 class FinishesController < ApplicationController
-  def index
-    # @finishes = Finish.where(user_id: params[:user_id]).order(id: "DESC") 
-    @finishes = Finish.order(id: "DESC")
+  def show
+    @user = User.find(params[:id])
+    @finishes = @user.finishes.order(id: "ASC") 
   end
 
   def create
+
     @finish = Finish.new(finish_params)
     if @finish.save
       redirect_to finishes_path
     else
-      @finishes = Finish.order(id: "DESC")
-      render 'index', status: :unprocessable_entity
+      @finishes = Finish.order(id: "ASC")
+      render 'show', status: :unprocessable_entity
     end
   end
 

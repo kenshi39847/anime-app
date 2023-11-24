@@ -14,7 +14,7 @@
               <%= link_to 'フレンド登録する（未完成）', root_path, class: "user-show-link-friend-register" %>
             </div>
             <div class="user-show-end-animes">
-              <%= link_to '➡観終わったアニメ一覧（未完成）', finishes_path, class: "user-show-link-end-anime" %>
+              <%= link_to '➡観終わったアニメ一覧（未完成）', finish_path(@user), class: "user-show-link-end-anime" %>
             </div>
             <% if @profile.present? %>
             <div class="user-show-tables">

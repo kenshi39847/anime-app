@@ -1,6 +1,6 @@
 <!-- 観終わったアニメ一覧ページ -->
   <div class="finish-index-forms">
-    <%= form_with model: @finish, id: "finish" do |form| %>
+    <%= form_with model: @finish, url: finishes_path, id: "finish" do |form| %>
       <div class="finish-index-form">
         <div class="finish-index-form-anime-group">
           <%= form.label :finish_anime, "アニメタイトル" %><br/>
