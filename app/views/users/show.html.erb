@@ -4,7 +4,7 @@
     <div class="user-show-my-pages">
       <div class="user-show-my-page">
         <div class="user-show-link">
-          <%= link_to "#{@user.name}さんのマイページ", root_path, class: "user-show-link-my-page" %>
+          <%= link_to "#{@user.name}さんのマイページ", user_path(@user), class: "user-show-link-my-page" %>
           <%= link_to 'フレンド一覧（未完成）', root_path, class: "user-show-link-friend-index" %>
         </div>
         <div class="user-show-my-page-contents">
@@ -14,7 +14,7 @@
               <%= link_to 'フレンド登録する（未完成）', root_path, class: "user-show-link-friend-register" %>
             </div>
             <div class="user-show-end-animes">
-              <%= link_to '➡観終わったアニメ一覧（未完成）', finish_path(@user), class: "user-show-link-end-anime" %>
+              <%= link_to '➡観終わったアニメ一覧', finish_path(@user), class: "user-show-link-end-anime" %>
             </div>
             <% if @profile.present? %>
             <div class="user-show-tables">

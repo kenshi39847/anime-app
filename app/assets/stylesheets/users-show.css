@@ -15,6 +15,15 @@
   padding: 0 30px 10px 30px;
 }
 
+.user-show-link-my-page {
+  text-decoration: none;
+  color: #000000;
+}
+
+.user-show-link-my-page:hover {
+  opacity: 0.6;
+}
+
 .user-show-my-page-content {
   border: 2px solid;
   padding: 30px;
@@ -27,7 +36,16 @@
 }
 
 .user-show-my-page-name {
-  font-size: 20px;
+  font-size: 25px;
+}
+
+.user-show-link-end-anime {
+  text-decoration: none;
+  color: #000000;
+}
+
+.user-show-link-end-anime:hover {
+  opacity: 0.6;
 }
 
 .user-show-tables {
