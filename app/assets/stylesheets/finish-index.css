@@ -1,3 +1,18 @@
+.finish-index-user-my-pages {
+  width: 300px;
+  margin: 10px 0 0 30px;
+  padding: 5px 0;
+}
+
+.finish-index-user-my-page {
+  text-decoration: none;
+  color: #000000;
+}
+
+.finish-index-user-my-page:hover {
+  opacity: 0.6;
+}
+
 .finish-index-form {
   display: flex;
   align-items: center;

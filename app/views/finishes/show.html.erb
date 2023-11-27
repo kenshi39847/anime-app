@@ -1,4 +1,7 @@
 <!-- 観終わったアニメ一覧ページ -->
+  <div class="finish-index-user-my-pages">
+    <%= link_to "←#{@user.name}さんのマイページへ戻る", user_path(@user), class: "finish-index-user-my-page" %>
+  </div>
   <div class="finish-index-forms">
     <%= form_with model: @finish, url: finishes_path, id: "finish" do |form| %>
       <div class="finish-index-form">
