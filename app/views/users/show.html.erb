@@ -11,7 +11,13 @@
           <div class="user-show-my-page-content">
             <div class="user-show-my-page-name-friend">
               <div class="user-show-my-page-name"> <%= "#{@user.name}さんのマイページ" %> </div>
-              <%= link_to 'フレンド登録する（未完成）', root_path, class: "user-show-link-friend-register" %>
+              <% if current_user != @user %>
+                <% if @user.followed_by?(current_user) %>
+                  <%=link_to "フレンド解除する（未完成）", user_relationships_path(@user.id), class: "user-show-link-friend-register", data: { turbo_method: :delete } %>
+                <% else %>
+                  <%=link_to "フレンド登録する（未完成）", user_relationships_path(@user.id), class: "user-show-link-friend-register", data: { turbo_method: :post } %>
+                <% end %>
+              <% end %>
             </div>
             <div class="user-show-end-animes">
               <%= link_to '➡観終わったアニメ一覧', finish_path(@user), class: "user-show-link-end-anime" %>

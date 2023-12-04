@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     end
     
   end
-  resources :users, only: :show
+  resources :users, only: :show do
+    resource :relationships, only: [:create, :destroy]
+  end
   resources :profiles, only: [:new, :create, :edit, :update]
   resources :finishes, only: [:show, :create]
   root to: "animes#index"
