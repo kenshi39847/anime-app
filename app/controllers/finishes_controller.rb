@@ -5,7 +5,6 @@ class FinishesController < ApplicationController
   end
 
   def create
-
     @finish = Finish.new(finish_params)
     if @finish.save
       redirect_to finishes_path

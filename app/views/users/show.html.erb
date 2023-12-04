@@ -12,9 +12,9 @@
             <div class="user-show-my-page-name-friend">
               <div class="user-show-my-page-name"> <%= "#{@user.name}さんのマイページ" %> </div>
               <% if @user.followed_by?(current_user) %>
-                <%=link_to "フレンド解除する（未完成）", user_relationships_path(@user.id),class: "btn", data: { turbo_method: :delete }, class:"user-show-link-friend-register" %>
+                <%=link_to "フレンド解除する（未完成）", user_relationships_path(@user.id), class: "user-show-link-friend-register", data: { turbo_method: :delete } %>
               <% else %>
-                <%=link_to "フレンド登録する（未完成）", user_relationships_path(@user.id),class: "btn", data: { turbo_method: :post }, class:"user-show-link-friend-register" %>
+                <%=link_to "フレンド登録する（未完成）", user_relationships_path(@user.id), class: "user-show-link-friend-register", data: { turbo_method: :post } %>
               <% end %>
             </div>
             <div class="user-show-end-animes">
