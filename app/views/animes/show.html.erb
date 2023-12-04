@@ -84,7 +84,7 @@
                 </tr>
                 <tr>
                   <th class="show-anime-detail-anime">アニメを観た感想</th>
-                  <td class="show-anime-detail-value"><%= @anime.text %></td>
+                  <td class="show-anime-detail-value"><%= simple_format(@anime.text) %></td>
                 </tr>
               </tbody>
             </table>
