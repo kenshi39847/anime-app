@@ -49,6 +49,16 @@
   opacity: 0.6;
 }
 
+.followings {
+  width: 100px;
+  background-color: #00ffa2;
+}
+
+.followers {
+  width: 100px;
+  background-color: #00ffa2;
+}
+
 .f-user {
   text-decoration: none;
   color: #000000;
@@ -74,8 +84,7 @@
 }
 
 .user-show-detail-table {
-  width: 600px;
-  padding: 0 20px 0 20px;
+  width: 550px;
 }
 
 .user-show-detail-animes {

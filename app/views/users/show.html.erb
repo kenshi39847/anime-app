@@ -3,10 +3,6 @@
 
     <div class="user-show-my-pages">
       <div class="user-show-my-page">
-        <div class="user-show-link">
-          <%= link_to "#{@user.name}さんのマイページ", user_path(@user), class: "user-show-link-my-page" %>
-          <%= link_to 'フレンド一覧（未完成）', root_path, class: "user-show-link-friend-index" %>
-        </div>
         <div class="user-show-my-page-contents">
           <div class="user-show-my-page-content">
             <div class="user-show-my-page-name-friend">
@@ -20,13 +16,13 @@
               <% end %>
             </div>
 
-            <h3>フォロー</h3>
+            <h3 class="followings">フォロー</h3>
             <% @user.followings.each do |user| %>
-              <p class=“f-users”><%= link_to user.name, user_path(user.id), class: "f-user" %></p>
+              <p class=“f-users”>・<%= link_to user.name, user_path(user.id), class: "f-user" %></p>
             <% end %>
-            <h3>フォロワー</h3>
+            <h3 class="followers">フォロワー</h3>
             <% @user.followers.each do |user| %>
-              <p class=“f-users”><%= link_to user.name, user_path(user.id), class: "f-user" %></p>
+              <p class=“f-users”>・<%= link_to user.name, user_path(user.id), class: "f-user" %></p>
             <% end %>
 
             <div class="user-show-end-animes">
