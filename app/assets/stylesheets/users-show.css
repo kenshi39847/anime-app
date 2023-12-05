@@ -40,6 +40,24 @@
   font-size: 25px;
 }
 
+.user-show-link-friend-register {
+  text-decoration: none;
+  color: #000000;
+}
+
+.user-show-link-friend-register:hover {
+  opacity: 0.6;
+}
+
+.f-user {
+  text-decoration: none;
+  color: #000000;
+}
+
+.f-user:hover {
+  opacity: 0.6
+}
+
 .user-show-link-end-anime {
   text-decoration: none;
   color: #000000;
