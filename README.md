@@ -97,9 +97,7 @@ https://docs.google.com/spreadsheets/d/1uUXSaH9SH_AFsS83MqFVDaH-cQ26J2G-/edit?us
 [![Image from Gyazo](https://i.gyazo.com/82ca0e9397eb8504b29deaa2634eb4a1.png)](https://gyazo.com/82ca0e9397eb8504b29deaa2634eb4a1)  
 
 
-# 実装予定の機能
-・マイページを装飾する機能  
-・フレンド機能  
+# 実装予定の機能  
 ・DM機能  
 
 
@@ -113,15 +111,18 @@ https://docs.google.com/spreadsheets/d/1uUXSaH9SH_AFsS83MqFVDaH-cQ26J2G-/edit?us
 
 # 開発環境
 ・フロントエンド  
+HTML,CSS,JavaScript,jQuery  
 ・バックエンド  
+Ruby,Ruby on Rails  
 ・インフラ  
+Render  
+S3  
 ・テスト  
+Rspec  
 ・テキストエディタ  
-・Ruby  
-・Ruby on Rails  
-・JavaScript  
-・jQuery  
-・ActiveStorage  
+Visual Studio Code  
+・その他  
+ActiveStorage  
 
 
 # ローカルでの動作方法
@@ -137,10 +138,11 @@ https://docs.google.com/spreadsheets/d/1uUXSaH9SH_AFsS83MqFVDaH-cQ26J2G-/edit?us
 
 
 # 改善点
-・「編集済み」という表示が出ると、その文字の分投稿されたアニメがずれているので、修正を行います。  
+・現在、フォロー・フォロワーの名前がマイページ上に表示されており、数が多くなると縦長になってしまい見づらくなるので、フォロー・フォロワー一覧ページを作り、見やすくなるようにする。  
+・マイページの背景を任意で変更できるようにする。  
 
 
 # 製作時間
-2023年11月27日更新  
-開発：150時間  
+2023年12月05日更新  
+開発：155時間  
 
