@@ -18,5 +18,7 @@ Rails.application.routes.draw do
   end
   resources :profiles, only: [:new, :create, :edit, :update]
   resources :finishes, only: [:show, :create]
+  resources :messages, only: :create
+  resources :rooms, only: [:create, :show]
   root to: "animes#index"
 end
