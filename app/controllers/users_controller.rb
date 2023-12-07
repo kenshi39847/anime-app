@@ -7,7 +7,8 @@ class UsersController < ApplicationController
       @netabare[anime.id] = Netabare.where(anime_id: anime.id).count
     end
     @profile = @user.profile
-
+  end
+=begin 
     @currentUserEntry=Entry.where(user_id: current_user.id)  #現在ログインしているユーザー
     @userEntry=Entry.where(user_id: @user.id)  #もう一人のユーザー
     if @user.id == current_user.id  #もう一人のユーザー=現在ログインしているユーザー
@@ -26,5 +27,6 @@ class UsersController < ApplicationController
         @entry = Entry.new
       end
     end
-  end
+=end
+
 end
