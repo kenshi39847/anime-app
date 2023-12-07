@@ -78,8 +78,11 @@
       </div>
     </div>
 
+<%
+=begin 
+%>
     <% unless @user.id == current_user.id %>
-  
+
       <% if @isRoom == true %>
         <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">チャットへ</a>
       <% else %>
@@ -92,7 +95,9 @@
       <% end %>
       
     <% end %>
-
+<%
+=end 
+%>
     <div class="user-show-charts">
       <div class="user-show-anime-chart">
         <%= "#{@user.name}さんのアニメ投稿一覧"%>
